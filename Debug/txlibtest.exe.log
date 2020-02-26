@@ -1,0 +1,842 @@
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{424} normal block at 0x009B9F10, 8 bytes long.
+ Data: <        > C0 9E 9B 00 00 00 00 00 
+{423} normal block at 0x009B9EC0, 16 bytes long.
+ Data: <                > 10 9F 9B 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe, файл: c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h, строка: 11801, функция: struct HBRUSH__ *__cdecl `anonymous-namespace'::TX::txSetFillColor(unsigned long,struct HDC__ *),
+
+Сообщение: Окно рисования не создано или не в порядке.
+
+#1: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x01179464 (32-bit), Flags: Cmdre0, Thread: 0x2950 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x010A7320 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: `anonymous namespace'::TX::txSetFillColor() at c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h (11801)
+
+# 1 0x01041869 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: Human::Human() at c:\bass24\c\livespec\txlibtest\txlibtest\human.cpp (6):
+
+      4: Human::Human(void)
+      5: {
+=>    6: 	txSetFillColor (TX_PINK);
+      7:     txCircle (275, 90, 50);
+      8:     txLine (275, 140, 275, 290); // right hand
+
+# 2 0x0110EF7D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (12):
+
+     10:     int WinHeight = GetSystemMetrics (SM_CXSCREEN), WinWidth = GetSystemMetrics (SM_CYSCREEN);
+     11:     txCreateWindow (WinHeight, WinWidth);
+=>   12: 	Human PersonalHuman;
+     13:     Sleep(1000);
+     14: 	return 0;
+
+# 3 0x011105F9 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+# 4 0x011107ED in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+# 5 0x74B76359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+# 6 0x77137B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+# 7 0x77137B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in struct HBRUSH__ *__cdecl `anonymous-namespace'::TX::txSetFillColor(unsigned long,struct HDC__ *) at c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h (11801):
+
+  11799: HBRUSH txSetFillColor (COLORREF color, HDC dc /*= txDC()*/)
+  11800:     {
+=>11801: $1  if (_TX_DEFAULT_HDC_FAILED (dc)) return NULL;
+  11802: 
+  11803: $   HBRUSH brush = (color == TX_TRANSPARENT)? (HBRUSH) Win32::GetStockObject (HOLLOW_BRUSH) : Win32::CreateSolidBrush (color);
+
+# 1 in (null) at c:\bass24\c\livespec\txlibtest\txlibtest\human.cpp (6):
+
+      4: Human::Human(void)
+      5: {
+=>    6: 	txSetFillColor (TX_PINK);
+      7:     txCircle (275, 90, 50);
+      8:     txLine (275, 140, 275, 290); // right hand
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 25 2020 23:48:04, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 25 2020 23:48:11
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00E96428, 8 bytes long.
+ Data: <xa      > 78 61 E9 00 00 00 00 00 
+{415} normal block at 0x00E96178, 16 bytes long.
+ Data: <(d              > 28 64 E9 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{805} normal block at 0x014D29F8, 8 bytes long.
+ Data: <07M     > 30 37 4D 01 00 00 00 00 
+{804} normal block at 0x014D3730, 16 bytes long.
+ Data: < )M             > F8 29 4D 01 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{805} normal block at 0x00D225A8, 8 bytes long.
+ Data: <07      > 30 37 D2 00 00 00 00 00 
+{804} normal block at 0x00D23730, 16 bytes long.
+ Data: < %              > A8 25 D2 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x008D6478, 8 bytes long.
+ Data: < a      > C8 61 8D 00 00 00 00 00 
+{415} normal block at 0x008D61C8, 16 bytes long.
+ Data: <xd              > 78 64 8D 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x010E6348, 8 bytes long.
+ Data: < a      > 98 61 0E 01 00 00 00 00 
+{415} normal block at 0x010E6198, 16 bytes long.
+ Data: <Hc              > 48 63 0E 01 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x01246460, 8 bytes long.
+ Data: < a$     > B0 61 24 01 00 00 00 00 
+{415} normal block at 0x012461B0, 16 bytes long.
+ Data: <`d$             > 60 64 24 01 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x012F63D0, 8 bytes long.
+ Data: < a/     > 20 61 2F 01 00 00 00 00 
+{415} normal block at 0x012F6120, 16 bytes long.
+ Data: < c/             > D0 63 2F 01 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00DF62D8, 8 bytes long.
+ Data: <(a      > 28 61 DF 00 00 00 00 00 
+{415} normal block at 0x00DF6128, 16 bytes long.
+ Data: < b              > D8 62 DF 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00DB63A8, 8 bytes long.
+ Data: < `      > F8 60 DB 00 00 00 00 00 
+{415} normal block at 0x00DB60F8, 16 bytes long.
+ Data: < c              > A8 63 DB 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x009A6400, 8 bytes long.
+ Data: <Pa      > 50 61 9A 00 00 00 00 00 
+{415} normal block at 0x009A6150, 16 bytes long.
+ Data: < d              > 00 64 9A 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x011A63F0, 8 bytes long.
+ Data: <@a      > 40 61 1A 01 00 00 00 00 
+{415} normal block at 0x011A6140, 16 bytes long.
+ Data: < c              > F0 63 1A 01 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x012F6430, 8 bytes long.
+ Data: < a/     > 80 61 2F 01 00 00 00 00 
+{415} normal block at 0x012F6180, 16 bytes long.
+ Data: <0d/             > 30 64 2F 01 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00FA6428, 8 bytes long.
+ Data: <xa      > 78 61 FA 00 00 00 00 00 
+{415} normal block at 0x00FA6178, 16 bytes long.
+ Data: <(d              > 28 64 FA 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x01166428, 8 bytes long.
+ Data: <xa      > 78 61 16 01 00 00 00 00 
+{415} normal block at 0x01166178, 16 bytes long.
+ Data: <(d              > 28 64 16 01 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00FC6430, 8 bytes long.
+ Data: < a      > 80 61 FC 00 00 00 00 00 
+{415} normal block at 0x00FC6180, 16 bytes long.
+ Data: <0d              > 30 64 FC 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00EE63C0, 8 bytes long.
+ Data: < a      > 10 61 EE 00 00 00 00 00 
+{415} normal block at 0x00EE6110, 16 bytes long.
+ Data: < c              > C0 63 EE 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00C96418, 8 bytes long.
+ Data: <ha      > 68 61 C9 00 00 00 00 00 
+{415} normal block at 0x00C96168, 16 bytes long.
+ Data: < d              > 18 64 C9 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00F463D0, 8 bytes long.
+ Data: < a      > 20 61 F4 00 00 00 00 00 
+{415} normal block at 0x00F46120, 16 bytes long.
+ Data: < c              > D0 63 F4 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00F06428, 8 bytes long.
+ Data: <xa      > 78 61 F0 00 00 00 00 00 
+{415} normal block at 0x00F06178, 16 bytes long.
+ Data: <(d              > 28 64 F0 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00866338, 8 bytes long.
+ Data: < a      > 88 61 86 00 00 00 00 00 
+{415} normal block at 0x00866188, 16 bytes long.
+ Data: <8c              > 38 63 86 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00D46438, 8 bytes long.
+ Data: < a      > 88 61 D4 00 00 00 00 00 
+{415} normal block at 0x00D46188, 16 bytes long.
+ Data: <8d              > 38 64 D4 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00D56440, 8 bytes long.
+ Data: < a      > 90 61 D5 00 00 00 00 00 
+{415} normal block at 0x00D56190, 16 bytes long.
+ Data: <@d              > 40 64 D5 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x008D63C0, 8 bytes long.
+ Data: < a      > 10 61 8D 00 00 00 00 00 
+{415} normal block at 0x008D6110, 16 bytes long.
+ Data: < c              > C0 63 8D 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x012C6358, 8 bytes long.
+ Data: < a,     > A8 61 2C 01 00 00 00 00 
+{415} normal block at 0x012C61A8, 16 bytes long.
+ Data: <Xc,             > 58 63 2C 01 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x015C63F0, 8 bytes long.
+ Data: <@a\     > 40 61 5C 01 00 00 00 00 
+{415} normal block at 0x015C6140, 16 bytes long.
+ Data: < c\             > F0 63 5C 01 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00966460, 8 bytes long.
+ Data: < a      > B0 61 96 00 00 00 00 00 
+{415} normal block at 0x009661B0, 16 bytes long.
+ Data: <`d              > 60 64 96 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00FF6410, 8 bytes long.
+ Data: < a      > A8 61 FF 00 00 00 00 00 
+{415} normal block at 0x00FF61A8, 16 bytes long.
+ Data: < d              > 10 64 FF 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00E56420, 8 bytes long.
+ Data: <pa      > 70 61 E5 00 00 00 00 00 
+{415} normal block at 0x00E56170, 16 bytes long.
+ Data: < d              > 20 64 E5 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x01186488, 8 bytes long.
+ Data: < a      > D8 61 18 01 00 00 00 00 
+{415} normal block at 0x011861D8, 16 bytes long.
+ Data: < d              > 88 64 18 01 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00B96428, 8 bytes long.
+ Data: <xa      > 78 61 B9 00 00 00 00 00 
+{415} normal block at 0x00B96178, 16 bytes long.
+ Data: <(d              > 28 64 B9 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00C363E8, 8 bytes long.
+ Data: <8a      > 38 61 C3 00 00 00 00 00 
+{415} normal block at 0x00C36138, 16 bytes long.
+ Data: < c              > E8 63 C3 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00A96410, 8 bytes long.
+ Data: <`a      > 60 61 A9 00 00 00 00 00 
+{415} normal block at 0x00A96160, 16 bytes long.
+ Data: < d              > 10 64 A9 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00CA6430, 8 bytes long.
+ Data: < a      > 80 61 CA 00 00 00 00 00 
+{415} normal block at 0x00CA6180, 16 bytes long.
+ Data: <0d              > 30 64 CA 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00696438, 8 bytes long.
+ Data: < ai     > 88 61 69 00 00 00 00 00 
+{415} normal block at 0x00696188, 16 bytes long.
+ Data: <8di             > 38 64 69 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x012B6428, 8 bytes long.
+ Data: <xa+     > 78 61 2B 01 00 00 00 00 
+{415} normal block at 0x012B6178, 16 bytes long.
+ Data: <(d+             > 28 64 2B 01 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00536400, 8 bytes long.
+ Data: <PaS     > 50 61 53 00 00 00 00 00 
+{415} normal block at 0x00536150, 16 bytes long.
+ Data: < dS             > 00 64 53 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00866400, 8 bytes long.
+ Data: <Pa      > 50 61 86 00 00 00 00 00 
+{415} normal block at 0x00866150, 16 bytes long.
+ Data: < d              > 00 64 86 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x013063F8, 8 bytes long.
+ Data: <Ha0     > 48 61 30 01 00 00 00 00 
+{415} normal block at 0x01306148, 16 bytes long.
+ Data: < c0             > F8 63 30 01 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x014F63F8, 8 bytes long.
+ Data: <HaO     > 48 61 4F 01 00 00 00 00 
+{415} normal block at 0x014F6148, 16 bytes long.
+ Data: < cO             > F8 63 4F 01 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00686400, 8 bytes long.
+ Data: <Pah     > 50 61 68 00 00 00 00 00 
+{415} normal block at 0x00686150, 16 bytes long.
+ Data: < dh             > 00 64 68 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00DF6428, 8 bytes long.
+ Data: <xa      > 78 61 DF 00 00 00 00 00 
+{415} normal block at 0x00DF6178, 16 bytes long.
+ Data: <(d              > 28 64 DF 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00A46440, 8 bytes long.
+ Data: < a      > 90 61 A4 00 00 00 00 00 
+{415} normal block at 0x00A46190, 16 bytes long.
+ Data: <@d              > 40 64 A4 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x01366428, 8 bytes long.
+ Data: <xa6     > 78 61 36 01 00 00 00 00 
+{415} normal block at 0x01366178, 16 bytes long.
+ Data: <(d6             > 28 64 36 01 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00D06468, 8 bytes long.
+ Data: < a      > B8 61 D0 00 00 00 00 00 
+{415} normal block at 0x00D061B8, 16 bytes long.
+ Data: <hd              > 68 64 D0 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x007E6428, 8 bytes long.
+ Data: <xa~     > 78 61 7E 00 00 00 00 00 
+{415} normal block at 0x007E6178, 16 bytes long.
+ Data: <(d~             > 28 64 7E 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x01106428, 8 bytes long.
+ Data: <xa      > 78 61 10 01 00 00 00 00 
+{415} normal block at 0x01106178, 16 bytes long.
+ Data: <(d              > 28 64 10 01 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x005D6420, 8 bytes long.
+ Data: <pa]     > 70 61 5D 00 00 00 00 00 
+{415} normal block at 0x005D6170, 16 bytes long.
+ Data: < d]             > 20 64 5D 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x01226400, 8 bytes long.
+ Data: <Pa"     > 50 61 22 01 00 00 00 00 
+{415} normal block at 0x01226150, 16 bytes long.
+ Data: < d"             > 00 64 22 01 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00D66438, 8 bytes long.
+ Data: < a      > 88 61 D6 00 00 00 00 00 
+{415} normal block at 0x00D66188, 16 bytes long.
+ Data: <8d              > 38 64 D6 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x01306438, 8 bytes long.
+ Data: < a0     > 88 61 30 01 00 00 00 00 
+{415} normal block at 0x01306188, 16 bytes long.
+ Data: <8d0             > 38 64 30 01 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x015E63F8, 8 bytes long.
+ Data: <Ha^     > 48 61 5E 01 00 00 00 00 
+{415} normal block at 0x015E6148, 16 bytes long.
+ Data: < c^             > F8 63 5E 01 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{416} normal block at 0x00D76400, 8 bytes long.
+ Data: <Pa      > 50 61 D7 00 00 00 00 00 
+{415} normal block at 0x00D76150, 16 bytes long.
+ Data: < d              > 00 64 D7 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Object dump complete.
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe, файл: c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h, строка: 7640, функция: struct HWND__ *__cdecl `anonymous-namespace'::TX::txCreateWindow(double,double,bool),
+
+Сообщение: Окно рисования уже создано!
+
+#1: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x0036A464 (32-bit), Flags: CMdRe0, Thread: 0x3C9C (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0027ED9A in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: `anonymous namespace'::TX::txCreateWindow() at c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h (7640)
+
+# 1 0x00236D4D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: Human::Init() at c:\bass24\c\livespec\txlibtest\txlibtest\human.cpp (8):
+
+      6: 	_txWindowStyle &= ~WS_CAPTION; // FullScreen: окно без заголовка, размером с экран
+      7:     int WinHeight = GetSystemMetrics (SM_CXSCREEN), WinWidth = GetSystemMetrics (SM_CYSCREEN);
+=>    8:     txCreateWindow (WinHeight, WinWidth);
+      9: }
+     10: 
+
+# 2 0x002318AF in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: Human::Human() at c:\bass24\c\livespec\txlibtest\txlibtest\human.cpp (38):
+
+     36: Human::Human (int x, int y, int sizeX, int sizeY, int Height)
+     37: {
+=>   38: 	Init ();
+     39: 	srand (time (NULL));
+     40: 	H_COLOR = RGB (rand(), rand(), rand());
+
+# 3 0x002FFA38 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (50):
+
+     48: {
+     49: 	Human PersonalHuman (50, 756, 2, 2, 50);
+=>   50: 	Human PersonalHumanClone (200, 756, 2, 2, 50);
+     51: 	while (true)
+     52: 	{
+
+# 4 0x00301119 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+# 5 0x0030130D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+# 6 0x74B76359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+# 7 0x77137B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+# 8 0x77137B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in struct HWND__ *__cdecl `anonymous-namespace'::TX::txCreateWindow(double,double,bool) at c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h (7640):
+
+   7638:         {
+   7639: $       SetLastErrorEx (ERROR_INVALID_DATA, 0);
+=> 7640: $       _TX_ON_DEBUG (TX_ERROR ("\a" "Окно рисования уже создано!"));
+   7641: $       return wnd;
+   7642:         }
+
+# 1 in (null) at c:\bass24\c\livespec\txlibtest\txlibtest\human.cpp (8):
+
+      6: 	_txWindowStyle &= ~WS_CAPTION; // FullScreen: окно без заголовка, размером с экран
+      7:     int WinHeight = GetSystemMetrics (SM_CXSCREEN), WinWidth = GetSystemMetrics (SM_CYSCREEN);
+=>    8:     txCreateWindow (WinHeight, WinWidth);
+      9: }
+     10: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 26 2020 09:05:57, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 26 2020 09:06:04
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe, файл: c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h, строка: 11801, функция: struct HBRUSH__ *__cdecl `anonymous-namespace'::TX::txSetFillColor(unsigned long,struct HDC__ *),
+
+Сообщение: Окно рисования не создано или не в порядке.
+
+#1: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x00AAA464 (32-bit), Flags: Cmdre0, Thread: 0x3810 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x009D7D10 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: `anonymous namespace'::TX::txSetFillColor() at c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h (11801)
+
+# 1 0x00976316 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: Human::DrawHuman() at c:\bass24\c\livespec\txlibtest\txlibtest\human.cpp (34):
+
+     32: void Human::DrawHuman()
+     33: {
+=>   34: 	txSetFillColor (TX_BLACK);
+     35:     txClear ();
+     36: 	txSetColor(H_COLOR);
+
+# 2 0x00971A5F in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: Human::Human() at c:\bass24\c\livespec\txlibtest\txlibtest\human.cpp (55):
+
+     53: 	humanCoord.rightHandX = humanCoord.x + height * 2;
+     54: 	humanCoord.rightHandY = humanCoord.y - height * 2;
+=>   55: 	DrawHuman ();
+     56: }
+     57: 
+
+# 3 0x00A3FD42 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (17):
+
+     15:     int WinHeight = GetSystemMetrics (SM_CXSCREEN), WinWidth = GetSystemMetrics (SM_CYSCREEN);
+     16:     txCreateWindow (WinHeight, WinWidth);
+=>   17: 	Human PersonalHuman (50, 756, 50);
+     18: 	while (true)
+     19: 	{
+
+# 4 0x00A41419 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+# 5 0x00A4160D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+# 6 0x74B76359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+# 7 0x77137B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+# 8 0x77137B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in struct HBRUSH__ *__cdecl `anonymous-namespace'::TX::txSetFillColor(unsigned long,struct HDC__ *) at c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h (11801):
+
+  11799: HBRUSH txSetFillColor (COLORREF color, HDC dc /*= txDC()*/)
+  11800:     {
+=>11801: $1  if (_TX_DEFAULT_HDC_FAILED (dc)) return NULL;
+  11802: 
+  11803: $   HBRUSH brush = (color == TX_TRANSPARENT)? (HBRUSH) Win32::GetStockObject (HOLLOW_BRUSH) : Win32::CreateSolidBrush (color);
+
+# 1 in (null) at c:\bass24\c\livespec\txlibtest\txlibtest\human.cpp (34):
+
+     32: void Human::DrawHuman()
+     33: {
+=>   34: 	txSetFillColor (TX_BLACK);
+     35:     txClear ();
+     36: 	txSetColor(H_COLOR);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 26 2020 11:51:00, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 26 2020 11:51:08
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe, файл: c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h, строка: 11801, функция: struct HBRUSH__ *__cdecl `anonymous-namespace'::TX::txSetFillColor(unsigned long,struct HDC__ *),
+
+Сообщение: Окно рисования не создано или не в порядке.
+
+#1: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x0105A464 (32-bit), Flags: Cmdre0, Thread: 0x2214 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00F87D10 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: `anonymous namespace'::TX::txSetFillColor() at c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h (11801)
+
+# 1 0x00F26316 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: Human::DrawHuman() at c:\bass24\c\livespec\txlibtest\txlibtest\human.cpp (34):
+
+     32: void Human::DrawHuman()
+     33: {
+=>   34: 	txSetFillColor (TX_BLACK);
+     35:     txClear ();
+     36: 	txSetColor(H_COLOR);
+
+# 2 0x00F21A5F in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: Human::Human() at c:\bass24\c\livespec\txlibtest\txlibtest\human.cpp (55):
+
+     53: 	humanCoord.rightHandX = humanCoord.x + height * 2;
+     54: 	humanCoord.rightHandY = humanCoord.y - height * 2;
+=>   55: 	DrawHuman ();
+     56: }
+     57: 
+
+# 3 0x00FEFD31 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (17):
+
+     15:     txCreateWindow (WinHeight, WinWidth/2);
+     16: 
+=>   17: 	Human PersonalHuman (50, 756, 50);
+     18: 
+     19: 	//while (true)
+
+# 4 0x00FF13C9 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+# 5 0x00FF15BD in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+# 6 0x74B76359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+# 7 0x77137B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+# 8 0x77137B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in struct HBRUSH__ *__cdecl `anonymous-namespace'::TX::txSetFillColor(unsigned long,struct HDC__ *) at c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h (11801):
+
+  11799: HBRUSH txSetFillColor (COLORREF color, HDC dc /*= txDC()*/)
+  11800:     {
+=>11801: $1  if (_TX_DEFAULT_HDC_FAILED (dc)) return NULL;
+  11802: 
+  11803: $   HBRUSH brush = (color == TX_TRANSPARENT)? (HBRUSH) Win32::GetStockObject (HOLLOW_BRUSH) : Win32::CreateSolidBrush (color);
+
+# 1 in (null) at c:\bass24\c\livespec\txlibtest\txlibtest\human.cpp (34):
+
+     32: void Human::DrawHuman()
+     33: {
+=>   34: 	txSetFillColor (TX_BLACK);
+     35:     txClear ();
+     36: 	txSetColor(H_COLOR);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 26 2020 11:51:00, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 26 2020 11:54:46
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------
