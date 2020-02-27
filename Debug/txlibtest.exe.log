@@ -840,3 +840,11 @@ Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
 Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
 
 --------------------------------------------------
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{1257} normal block at 0x016E6628, 12 bytes long.
+ Data: <        |   > 00 00 00 00 C6 02 00 00 7C 01 00 00 
+Object dump complete.

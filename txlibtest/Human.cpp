@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Human.h"
-
-
+#include <math.h>
+#define PI 3.141592653
 void Human::MoveTo ()
 {
 	int x, y;
@@ -9,35 +9,64 @@ void Human::MoveTo ()
 	std::cin >> x >> y;
 	humanCoord.x = x;
 	humanCoord.y = y;
-	humanCoord.rightHandX = humanCoord.x + height * 2;
-	humanCoord.rightHandY = humanCoord.y - height * 2;
 	DrawHuman ();
 }
 
-void Human::rightHandUp(int tangle)
+int Human::GetRightHandTangle()
 {
-	humanCoord.rightHandX = (humanCoord.x + height) + height * cos (tangle);
-	humanCoord.rightHandY = (humanCoord.y - height * 3) + height * sin (tangle);
-	DrawHuman();
+	return RightHandTangle;
 }
 
-void Human::rightHandDown()
+void Human::SetRHandXY(POINT P)
 {
-	humanCoord.rightHandX += 1;
-	humanCoord.rightHandY += 1;
+	humanCoord.rightHandX = P.x;
+	humanCoord.rightHandY = P.y;
+}
+
+int Human::GetHeight()
+{
+	return height;
 }
 
 void Human::DrawHuman()
 {
-	vladoSetFillColor (TX_BLACK);
-    vladoClear ();
-	vladoSetColor(H_COLOR);
-	vladoLine (humanCoord.x, humanCoord.y, humanCoord.x + height, humanCoord.y - height); // left foot
-	vladoLine (humanCoord.x + height * 2, humanCoord.y, humanCoord.x + height, humanCoord.y - height); // right foot
-	vladoLine (humanCoord.x + height, humanCoord.y - height, humanCoord.x + height, humanCoord.y - height * 3); // body
-	vladoCircle (humanCoord.x + height, humanCoord.y - height * 3 - 30, 30); // head
-	vladoLine (humanCoord.x + height, humanCoord.y - height * 3, humanCoord.x, humanCoord.y - height * 2); // left hand 
-	vladoLine (humanCoord.x + height, humanCoord.y - height * 3, humanCoord.rightHandX, humanCoord.rightHandY); // right hand
+	//vlado::UpdateWindow(1);
+	//vlado::BeginDraw();
+	vlado::SetFillColor (TX_BLACK);
+    vlado::Clear ();
+	vlado::SetColor (H_COLOR);
+	vlado::Line (humanCoord.x, humanCoord.y, humanCoord.x + height, humanCoord.y - height); // left foot
+	vlado::Line (humanCoord.x + height * 2, humanCoord.y, humanCoord.x + height, humanCoord.y - height); // right foot
+	vlado::Line (humanCoord.x + height, humanCoord.y - height, humanCoord.x + height, humanCoord.y - height * 3); // body
+	vlado::Circle (humanCoord.x + height, humanCoord.y - height * 3 - headSize, headSize); // head
+	vlado::Line (humanCoord.x + height, humanCoord.y - height * 3, humanCoord.x, humanCoord.y - height * 2); // left hand 
+	vlado::Line (humanCoord.x + height, humanCoord.y - height * 3, humanCoord.rightHandX, humanCoord.rightHandY); // right hand
+	//vlado::Sleep (50);  
+	//vlado::EndDraw();
+}
+
+void Human::SetX(int x)
+{
+	humanCoord.x = x;
+}
+
+void Human::SetY(int y)
+{
+	humanCoord.y = y;
+}
+
+void Human::SetCoord(POINT P)
+{
+	humanCoord.x = P.x;
+	humanCoord.y = P.y;
+	double RHAngle = (RightHandTangle * PI) / 180;
+	humanCoord.rightHandX = (humanCoord.x + height) + height * cos (RHAngle);
+	humanCoord.rightHandY = (humanCoord.y - height * 3) + height * sin (RHAngle);
+}
+
+void Human::SetRHandAngle(int angle)
+{
+	RightHandTangle = angle;
 }
 
 Human::Human (int x, int y, int Height, int sizeX, int sizeY)
@@ -45,10 +74,12 @@ Human::Human (int x, int y, int Height, int sizeX, int sizeY)
 	srand (time (NULL));
 	H_COLOR = RGB (rand(), rand(), rand());
 	height = Height;
+	headSize = 30;
 	humanCoord.x = x;
 	humanCoord.y = y;
 	humanCoord.rightHandX = humanCoord.x + height * 2;
 	humanCoord.rightHandY = humanCoord.y - height * 2;
+	RightHandTangle = 45;
 	DrawHuman ();
 }
 
@@ -60,6 +91,16 @@ int Human::GetX ()
 int Human::GetY ()
 {
 	return humanCoord.y;
+}
+
+int Human::GetXR ()
+{
+	return humanCoord.x + height * 2;
+}
+
+int Human::GetYR ()
+{
+	return humanCoord.y - height * 3 - headSize * 2;
 }
 
 void Human::changeColor ()

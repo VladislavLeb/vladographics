@@ -15,14 +15,23 @@ public:
 	~Human (void);
 	int GetX ();
 	int GetY ();
+	int GetXR ();
+	int GetYR ();
+	int GetHeight();
+	int GetRightHandTangle();
+	void SetRHandXY(POINT);
+	void SetRHandAngle(int);
+	void SetX (int);
+	void SetY (int);
+	void SetCoord(POINT);
 	void MoveTo ();
 	void changeColor ();
-	void rightHandUp (int);
-	void rightHandDown ();
+	void DrawHuman ();
 private:
 	COLORREF H_COLOR;
 	coord humanCoord;
-	void DrawHuman ();
 	int height;
+	int RightHandTangle;
+	int headSize;
 };
 

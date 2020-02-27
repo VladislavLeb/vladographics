@@ -1,0 +1,9 @@
+Fill_Color 0
+Clear
+Color 7012209
+Line 50 756 100 706
+Line 150 756 100 706
+Line 100 706 100 606
+Circle 100 576 30
+Line 100 606 50 656
+Line 100 606 150 656

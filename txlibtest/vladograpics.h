@@ -2,13 +2,27 @@
 #include <fstream>
 #include "TXLib.h"
 
-
-void Init();
-void vladoLine(int, int, int, int);
-void vladoSetFillColor(COLORREF);
-void vladoClear();
-void vladoCircle(int, int, int);
-void vladoSetColor(COLORREF);
-void vladoClose();
-void drawByFile(char []);
-static std::ofstream outLog;
+namespace vlado
+{
+	void Sleep(int);
+	void Init();
+	void BeginDraw();
+	void EndDraw();
+	void Line(int, int, int, int);
+	void SetFillColor(COLORREF);
+	void Clear();
+	void Circle(int, int, int);
+	void SetColor(COLORREF);
+	void Close();
+	void UpdateWindow(int);
+	void drawByFile(char []);
+	int MouseX();
+	int MouseY();
+	POINT MouseCoord();
+	unsigned MouseState();
+	void drawByMouse();
+	int isKeyPressed(int);
+}
+extern COLORREF ActualCOLOR;
+extern int isAnimation;
+extern std::ofstream outLog;
