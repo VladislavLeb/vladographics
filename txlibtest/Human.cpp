@@ -33,7 +33,6 @@ void Human::DrawHuman()
 	//vlado::UpdateWindow(1);
 	//vlado::BeginDraw();
 	vlado::SetFillColor (TX_BLACK);
-    vlado::Clear ();
 	vlado::SetColor (H_COLOR);
 	vlado::Line (humanCoord.x, humanCoord.y, humanCoord.x + height, humanCoord.y - height); // left foot
 	vlado::Line (humanCoord.x + height * 2, humanCoord.y, humanCoord.x + height, humanCoord.y - height); // right foot

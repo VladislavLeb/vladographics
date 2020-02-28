@@ -1,12 +1,14 @@
-﻿Построение начато 27.02.2020 17:35:33.
+﻿Построение начато 28.02.2020 20:43:21.
      1>Проект "C:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.vcxproj" в узле 2 (целевые объекты Build).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\txlibtest.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt vladograpics.cpp
          vladograpics.cpp
-     1>c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp(10): warning C4551: в вызове функции отсутствует список аргументов
-     1>c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp(46): warning C4189: click: локальная переменная инициализирована, но не использована
+     1>c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp(27): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+     1>c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp(81): warning C4189: click: локальная переменная инициализирована, но не использована
+     1>c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp(195): warning C4127: условное выражение является константой
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\bass24\c\livespec\txlibtest\Debug\txlibtest.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\bass24\c\livespec\txlibtest\Debug\txlibtest.lib" /MACHINE:X86 Debug\txlibtest.res
+         Debug\Character.obj
          Debug\Human.obj
          Debug\HumanManager.obj
          Debug\stdafx.obj
@@ -17,4 +19,4 @@
 
 Построение успешно завершено.
 
-Затраченное время: 00:00:05.92
+Затраченное время: 00:00:05.91

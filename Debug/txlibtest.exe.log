@@ -848,3 +848,2182 @@ Dumping objects ->
 {1257} normal block at 0x016E6628, 12 bytes long.
  Data: <        |   > 00 00 00 00 C6 02 00 00 7C 01 00 00 
 Object dump complete.
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe,
+
+ВНЕЗАПНО: #1: {ИСКЛЮЧЕНИЕ}
+Множественные ловушки с плавающей точкой. (0xC00002B5) при выполнении кода по адресу 0x002E9E7C в функции vlado::GetArgs() в файле c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp на строке 153. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x003D5894 (32-bit), Flags: Cmdre0, Thread: 0x1C60 (Main), errno: 13 (Permission denied), _doserrno: 21 (Is a directory). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x002E9E7C in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::GetArgs() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (153):
+
+    151: 			//std::cout << i;
+    152: 			//if (i != 2) std::cout << " "; 
+=>  153: 			args[i] /= pow (dec, step);
+    154: 			step = 2;
+    155: 			i++;
+
+# 1 0x00326382 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::drawByFile() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (189):
+
+    187: 			const int count = 3;
+    188: 			int args[count];
+=>  189: 			vlado::GetArgs(args, &fin);
+    190: 			std::cout << args[0] << " " << args[1] << " " << args[2] << std::endl;
+    191: 
+
+# 2 0x002BFA76 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: doCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (87):
+
+     85: 		char *path = new char[255];
+     86: 		std::cin >> path;
+=>   87: 		vlado::drawByFile (path);
+     88: 		delete [] path;
+     89: 	}
+
+# 3 0x002BDC2D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: askCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (146):
+
+    144: 	std::cout << "If you want to create Human enter the number 7 and press ENTER button" << std::endl;
+    145: 	std::cin >> command;
+=>  146: 	doCommand (command, PersonalHuman);
+    147: }
+    148: 
+
+# 4 0x002E5FA0 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (27):
+
+     25: 	{
+     26: 		reDraw (&PersonalHuman);
+=>   27: 		askCommand (&PersonalHuman);
+     28: 	//	vlado::UpdateWindow(0);
+     29: 	}
+
+# 5 0x0034FE69 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+# 6 0x0035005D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+# 7 0x75C56359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+# 8 0x77BE7B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+# 9 0x77BE7B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 28 2020 10:26:32, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 28 2020 10:38:28
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe,
+
+ВНЕЗАПНО: #1: {ИСКЛЮЧЕНИЕ}
+Множественные ловушки с плавающей точкой. (0xC00002B5) при выполнении кода по адресу 0x002E9E7C в функции vlado::GetArgs() в файле c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp на строке 153. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции _set_se_translator() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x003D5894 (32-bit), Flags: Cmdre0, Thread: 0x1C60 (Main), errno: 13 (Permission denied), _doserrno: 21 (Is a directory). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x002E9E7C in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::GetArgs() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (153):
+
+    151: 			//std::cout << i;
+    152: 			//if (i != 2) std::cout << " "; 
+=>  153: 			args[i] /= pow (dec, step);
+    154: 			step = 2;
+    155: 			i++;
+
+# 1 0x00326382 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::drawByFile() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (189):
+
+    187: 			const int count = 3;
+    188: 			int args[count];
+=>  189: 			vlado::GetArgs(args, &fin);
+    190: 			std::cout << args[0] << " " << args[1] << " " << args[2] << std::endl;
+    191: 
+
+# 2 0x002BFA76 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: doCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (87):
+
+     85: 		char *path = new char[255];
+     86: 		std::cin >> path;
+=>   87: 		vlado::drawByFile (path);
+     88: 		delete [] path;
+     89: 	}
+
+# 3 0x002BDC2D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: askCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (146):
+
+    144: 	std::cout << "If you want to create Human enter the number 7 and press ENTER button" << std::endl;
+    145: 	std::cin >> command;
+=>  146: 	doCommand (command, PersonalHuman);
+    147: }
+    148: 
+
+# 4 0x002E5FA0 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (27):
+
+     25: 	{
+     26: 		reDraw (&PersonalHuman);
+=>   27: 		askCommand (&PersonalHuman);
+     28: 	//	vlado::UpdateWindow(0);
+     29: 	}
+
+# 5 0x0034FE69 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+# 6 0x0035005D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+# 7 0x75C56359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+# 8 0x77BE7B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+# 9 0x77BE7B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 28 2020 10:26:32, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 28 2020 10:38:28
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe,
+
+ВНЕЗАПНО: #1: {ИСКЛЮЧЕНИЕ}
+Множественные ловушки с плавающей точкой. (0xC00002B5) при выполнении кода по адресу 0x00E49E7C в функции vlado::GetArgs() в файле c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp на строке 153. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x00F35894 (32-bit), Flags: Cmdre0, Thread: 0xFD0 (Main), errno: 13 (Permission denied), _doserrno: 21 (Is a directory). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00E49E7C in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::GetArgs() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (153):
+
+    151: 			//std::cout << i;
+    152: 			//if (i != 2) std::cout << " "; 
+=>  153: 			args[i] /= pow (dec, step);
+    154: 			step = 2;
+    155: 			i++;
+
+# 1 0x00E8637E in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::drawByFile() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (189):
+
+    187: 			const int count = 3;
+    188: 			int args[count];
+=>  189: 			vlado::GetArgs(args, &fin);
+    190: 			//std::cout << args[0] << " " << args[1] << " " << args[2] << std::endl;
+    191: 
+
+# 2 0x00E1FA76 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: doCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (87):
+
+     85: 		char *path = new char[255];
+     86: 		std::cin >> path;
+=>   87: 		vlado::drawByFile (path);
+     88: 		delete [] path;
+     89: 	}
+
+# 3 0x00E1DC2D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: askCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (146):
+
+    144: 	std::cout << "If you want to create Human enter the number 7 and press ENTER button" << std::endl;
+    145: 	std::cin >> command;
+=>  146: 	doCommand (command, PersonalHuman);
+    147: }
+    148: 
+
+# 4 0x00E45FA0 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (27):
+
+     25: 	{
+     26: 		reDraw (&PersonalHuman);
+=>   27: 		askCommand (&PersonalHuman);
+     28: 	//	vlado::UpdateWindow(0);
+     29: 	}
+
+# 5 0x00EAFE69 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+# 6 0x00EB005D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+# 7 0x75C56359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+# 8 0x77BE7B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+# 9 0x77BE7B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 28 2020 10:26:32, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 28 2020 10:40:12
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe,
+
+ВНЕЗАПНО: #1: {ИСКЛЮЧЕНИЕ}
+Множественные ловушки с плавающей точкой. (0xC00002B5) при выполнении кода по адресу 0x00E49E7C в функции vlado::GetArgs() в файле c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp на строке 153. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции _set_se_translator() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x00F35894 (32-bit), Flags: Cmdre0, Thread: 0xFD0 (Main), errno: 13 (Permission denied), _doserrno: 21 (Is a directory). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00E49E7C in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::GetArgs() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (153):
+
+    151: 			//std::cout << i;
+    152: 			//if (i != 2) std::cout << " "; 
+=>  153: 			args[i] /= pow (dec, step);
+    154: 			step = 2;
+    155: 			i++;
+
+# 1 0x00E8637E in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::drawByFile() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (189):
+
+    187: 			const int count = 3;
+    188: 			int args[count];
+=>  189: 			vlado::GetArgs(args, &fin);
+    190: 			//std::cout << args[0] << " " << args[1] << " " << args[2] << std::endl;
+    191: 
+
+# 2 0x00E1FA76 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: doCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (87):
+
+     85: 		char *path = new char[255];
+     86: 		std::cin >> path;
+=>   87: 		vlado::drawByFile (path);
+     88: 		delete [] path;
+     89: 	}
+
+# 3 0x00E1DC2D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: askCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (146):
+
+    144: 	std::cout << "If you want to create Human enter the number 7 and press ENTER button" << std::endl;
+    145: 	std::cin >> command;
+=>  146: 	doCommand (command, PersonalHuman);
+    147: }
+    148: 
+
+# 4 0x00E45FA0 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (27):
+
+     25: 	{
+     26: 		reDraw (&PersonalHuman);
+=>   27: 		askCommand (&PersonalHuman);
+     28: 	//	vlado::UpdateWindow(0);
+     29: 	}
+
+# 5 0x00EAFE69 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+# 6 0x00EB005D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+# 7 0x75C56359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+# 8 0x77BE7B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+# 9 0x77BE7B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 28 2020 10:26:32, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 28 2020 10:40:12
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------
+f:\dd\vctools\crt_bld\self_x86\crt\src\isctype.c(68) : Assertion failed: c >= -1 && c <= 255
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe,
+
+ВНЕЗАПНО: signal (22, 0xE2266734): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x00EC5894 (32-bit), Flags: Cmdre0, Thread: 0xA40 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00CD66AA in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: `anonymous namespace'::TX::_txOnSignal() at c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h (9746)
+# 1 0x6207989F in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: raise()
+# 2 0x62073F75 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtSetReportHookW2()
+# 3 0x6207BF13 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: VCrtDbgReportW()
+# 4 0x62073784 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtDbgReportW()
+# 5 0x6207373D in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtDbgReportW()
+# 6 0x62012E0B in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: chvalidator_l()
+# 7 0x62010C9E in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: isdigit_l()
+# 8 0x62011119 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: isdigit()
+
+# 9 0x00DD9E65 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::GetArgs() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (172):
+
+    170: 	{
+    171: 		fin -> get(letter);
+=>  172: 		if (isdigit(letter))
+    173: 		{
+    174: 			num += letter;
+
+#10 0x00E16605 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::drawByFile() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (215):
+
+    213: 			const int count = 3;
+    214: 			int args[count];
+=>  215: 			vlado::GetArgs(args, &fin);
+    216: 			std::cout << args[0] << " " << args[1] << " " << args[2] << std::endl;
+    217: 			vlado::Circle (args[0], args[1], args[2]);
+
+#11 0x00DAFA96 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: doCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (87):
+
+     85: 		char *path = new char[255];
+     86: 		std::cin >> path;
+=>   87: 		vlado::drawByFile (path);
+     88: 		delete [] path;
+     89: 	}
+
+#12 0x00DADC4D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: askCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (146):
+
+    144: 	std::cout << "If you want to create Human enter the number 7 and press ENTER button" << std::endl;
+    145: 	std::cin >> command;
+=>  146: 	doCommand (command, PersonalHuman);
+    147: }
+    148: 
+
+#13 0x00DD5FC0 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (27):
+
+     25: 	{
+     26: 		reDraw (&PersonalHuman);
+=>   27: 		askCommand (&PersonalHuman);
+     28: 	//	vlado::UpdateWindow(0);
+     29: 	}
+
+#14 0x00E405B9 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+#15 0x00E407AD in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+#16 0x75C56359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+#17 0x77BE7B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#18 0x77BE7B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 28 2020 11:47:59, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 28 2020 11:57:02
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------
+f:\dd\vctools\crt_bld\self_x86\crt\src\isctype.c(68) : Assertion failed: c >= -1 && c <= 255
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe,
+
+ВНЕЗАПНО: signal (22, 0x49599B9F): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x00EC5894 (32-bit), Flags: Cmdre0, Thread: 0x19A8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00CD66AA in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: `anonymous namespace'::TX::_txOnSignal() at c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h (9746)
+# 1 0x61FA989F in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: raise()
+# 2 0x61FA3F75 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtSetReportHookW2()
+# 3 0x61FABF13 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: VCrtDbgReportW()
+# 4 0x61FA3784 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtDbgReportW()
+# 5 0x61FA373D in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtDbgReportW()
+# 6 0x61F42E0B in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: chvalidator_l()
+# 7 0x61F40C9E in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: isdigit_l()
+# 8 0x61F41119 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: isdigit()
+
+# 9 0x00DD9E65 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::GetArgs() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (172):
+
+    170: 	{
+    171: 		fin -> get(letter);
+=>  172: 		if (isdigit(letter))
+    173: 		{
+    174: 			num += letter;
+
+#10 0x00E16605 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::drawByFile() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (215):
+
+    213: 			const int count = 3;
+    214: 			int args[count];
+=>  215: 			vlado::GetArgs(args, &fin);
+    216: 			std::cout << args[0] << " " << args[1] << " " << args[2] << std::endl;
+    217: 			vlado::Circle (args[0], args[1], args[2]);
+
+#11 0x00DAFA96 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: doCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (87):
+
+     85: 		char *path = new char[255];
+     86: 		std::cin >> path;
+=>   87: 		vlado::drawByFile (path);
+     88: 		delete [] path;
+     89: 	}
+
+#12 0x00DADC4D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: askCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (146):
+
+    144: 	std::cout << "If you want to create Human enter the number 7 and press ENTER button" << std::endl;
+    145: 	std::cin >> command;
+=>  146: 	doCommand (command, PersonalHuman);
+    147: }
+    148: 
+
+#13 0x00DD5FC0 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (27):
+
+     25: 	{
+     26: 		reDraw (&PersonalHuman);
+=>   27: 		askCommand (&PersonalHuman);
+     28: 	//	vlado::UpdateWindow(0);
+     29: 	}
+
+#14 0x00E405B9 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+#15 0x00E407AD in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+#16 0x75C56359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+#17 0x77BE7B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#18 0x77BE7B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 28 2020 11:47:59, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 28 2020 12:02:22
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------
+f:\dd\vctools\crt_bld\self_x86\crt\src\isctype.c(68) : Assertion failed: c >= -1 && c <= 255
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe,
+
+ВНЕЗАПНО: signal (22, 0x52A5422D): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x00EC5894 (32-bit), Flags: Cmdre0, Thread: 0x2458 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00CD66AA in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: `anonymous namespace'::TX::_txOnSignal() at c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h (9746)
+# 1 0x61FA989F in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: raise()
+# 2 0x61FA3F75 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtSetReportHookW2()
+# 3 0x61FABF13 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: VCrtDbgReportW()
+# 4 0x61FA3784 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtDbgReportW()
+# 5 0x61FA373D in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtDbgReportW()
+# 6 0x61F42E0B in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: chvalidator_l()
+# 7 0x61F40C9E in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: isdigit_l()
+# 8 0x61F41119 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: isdigit()
+
+# 9 0x00DD9E65 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::GetArgs() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (172):
+
+    170: 	{
+    171: 		fin -> get(letter);
+=>  172: 		if (isdigit(letter))
+    173: 		{
+    174: 			num += letter;
+
+#10 0x00E16605 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::drawByFile() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (215):
+
+    213: 			const int count = 3;
+    214: 			int args[count];
+=>  215: 			vlado::GetArgs(args, &fin);
+    216: 			std::cout << args[0] << " " << args[1] << " " << args[2] << std::endl;
+    217: 			vlado::Circle (args[0], args[1], args[2]);
+
+#11 0x00DAFA96 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: doCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (87):
+
+     85: 		char *path = new char[255];
+     86: 		std::cin >> path;
+=>   87: 		vlado::drawByFile (path);
+     88: 		delete [] path;
+     89: 	}
+
+#12 0x00DADC4D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: askCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (146):
+
+    144: 	std::cout << "If you want to create Human enter the number 7 and press ENTER button" << std::endl;
+    145: 	std::cin >> command;
+=>  146: 	doCommand (command, PersonalHuman);
+    147: }
+    148: 
+
+#13 0x00DD5FC0 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (27):
+
+     25: 	{
+     26: 		reDraw (&PersonalHuman);
+=>   27: 		askCommand (&PersonalHuman);
+     28: 	//	vlado::UpdateWindow(0);
+     29: 	}
+
+#14 0x00E405B9 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+#15 0x00E407AD in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+#16 0x75C56359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+#17 0x77BE7B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#18 0x77BE7B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 28 2020 11:47:59, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 28 2020 12:05:03
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------
+f:\dd\vctools\crt_bld\self_x86\crt\src\isctype.c(68) : Assertion failed: c >= -1 && c <= 255
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe,
+
+ВНЕЗАПНО: signal (22, 0x6FE608B): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x00EC5894 (32-bit), Flags: Cmdre0, Thread: 0x2D34 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00CD66AA in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: `anonymous namespace'::TX::_txOnSignal() at c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h (9746)
+# 1 0x61FA989F in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: raise()
+# 2 0x61FA3F75 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtSetReportHookW2()
+# 3 0x61FABF13 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: VCrtDbgReportW()
+# 4 0x61FA3784 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtDbgReportW()
+# 5 0x61FA373D in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtDbgReportW()
+# 6 0x61F42E0B in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: chvalidator_l()
+# 7 0x61F40C9E in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: isdigit_l()
+# 8 0x61F41119 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: isdigit()
+
+# 9 0x00DD9E65 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::GetArgs() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (172):
+
+    170: 	{
+    171: 		fin -> get(letter);
+=>  172: 		if (isdigit(letter))
+    173: 		{
+    174: 			num += letter;
+
+#10 0x00E16605 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::drawByFile() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (215):
+
+    213: 			const int count = 3;
+    214: 			int args[count];
+=>  215: 			vlado::GetArgs(args, &fin);
+    216: 			std::cout << args[0] << " " << args[1] << " " << args[2] << std::endl;
+    217: 			vlado::Circle (args[0], args[1], args[2]);
+
+#11 0x00DAFA96 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: doCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (87):
+
+     85: 		char *path = new char[255];
+     86: 		std::cin >> path;
+=>   87: 		vlado::drawByFile (path);
+     88: 		delete [] path;
+     89: 	}
+
+#12 0x00DADC4D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: askCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (146):
+
+    144: 	std::cout << "If you want to create Human enter the number 7 and press ENTER button" << std::endl;
+    145: 	std::cin >> command;
+=>  146: 	doCommand (command, PersonalHuman);
+    147: }
+    148: 
+
+#13 0x00DD5FC0 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (27):
+
+     25: 	{
+     26: 		reDraw (&PersonalHuman);
+=>   27: 		askCommand (&PersonalHuman);
+     28: 	//	vlado::UpdateWindow(0);
+     29: 	}
+
+#14 0x00E405B9 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+#15 0x00E407AD in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+#16 0x75C56359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+#17 0x77BE7B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#18 0x77BE7B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 28 2020 11:47:59, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 28 2020 12:06:08
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------
+f:\dd\vctools\crt_bld\self_x86\crt\src\isctype.c(68) : Assertion failed: c >= -1 && c <= 255
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe,
+
+ВНЕЗАПНО: signal (22, 0x912A40E4): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x00F85894 (32-bit), Flags: Cmdre0, Thread: 0x17F0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00D966AA in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: `anonymous namespace'::TX::_txOnSignal() at c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h (9746)
+# 1 0x6207989F in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: raise()
+# 2 0x62073F75 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtSetReportHookW2()
+# 3 0x6207BF13 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: VCrtDbgReportW()
+# 4 0x62073784 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtDbgReportW()
+# 5 0x6207373D in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtDbgReportW()
+# 6 0x62012E0B in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: chvalidator_l()
+# 7 0x62010C9E in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: isdigit_l()
+# 8 0x62011119 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: isdigit()
+
+# 9 0x00E99E65 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::GetArgs() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (172):
+
+    170: 	{
+    171: 		fin -> get(letter);
+=>  172: 		if (isdigit(letter))
+    173: 		{
+    174: 			num += letter;
+
+#10 0x00ED6605 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::drawByFile() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (215):
+
+    213: 			const int count = 3;
+    214: 			int args[count];
+=>  215: 			vlado::GetArgs(args, &fin);
+    216: 			std::cout << args[0] << " " << args[1] << " " << args[2] << std::endl;
+    217: 			vlado::Circle (args[0], args[1], args[2]);
+
+#11 0x00E6FA96 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: doCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (87):
+
+     85: 		char *path = new char[255];
+     86: 		std::cin >> path;
+=>   87: 		vlado::drawByFile (path);
+     88: 		delete [] path;
+     89: 	}
+
+#12 0x00E6DC4D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: askCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (146):
+
+    144: 	std::cout << "If you want to create Human enter the number 7 and press ENTER button" << std::endl;
+    145: 	std::cin >> command;
+=>  146: 	doCommand (command, PersonalHuman);
+    147: }
+    148: 
+
+#13 0x00E95FC0 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (27):
+
+     25: 	{
+     26: 		reDraw (&PersonalHuman);
+=>   27: 		askCommand (&PersonalHuman);
+     28: 	//	vlado::UpdateWindow(0);
+     29: 	}
+
+#14 0x00F005B9 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+#15 0x00F007AD in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+#16 0x75C56359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+#17 0x77BE7B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#18 0x77BE7B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 28 2020 11:47:59, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 28 2020 12:07:37
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------
+f:\dd\vctools\crt_bld\self_x86\crt\src\isctype.c(68) : Assertion failed: c >= -1 && c <= 255
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe,
+
+ВНЕЗАПНО: signal (22, 0xFF354337): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x01065894 (32-bit), Flags: Cmdre0, Thread: 0x1B50 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00E766AA in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: `anonymous namespace'::TX::_txOnSignal() at c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h (9746)
+# 1 0x61FA989F in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: raise()
+# 2 0x61FA3F75 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtSetReportHookW2()
+# 3 0x61FABF13 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: VCrtDbgReportW()
+# 4 0x61FA3784 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtDbgReportW()
+# 5 0x61FA373D in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtDbgReportW()
+# 6 0x61F42E0B in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: chvalidator_l()
+# 7 0x61F40C9E in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: isdigit_l()
+# 8 0x61F41119 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: isdigit()
+
+# 9 0x00F79E65 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::GetArgs() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (172):
+
+    170: 	{
+    171: 		fin -> get(letter);
+=>  172: 		if (isdigit(letter))
+    173: 		{
+    174: 			num += letter;
+
+#10 0x00FB6605 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::drawByFile() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (215):
+
+    213: 			const int count = 3;
+    214: 			int args[count];
+=>  215: 			vlado::GetArgs(args, &fin);
+    216: 			std::cout << args[0] << " " << args[1] << " " << args[2] << std::endl;
+    217: 			vlado::Circle (args[0], args[1], args[2]);
+
+#11 0x00F4FA96 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: doCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (87):
+
+     85: 		char *path = new char[255];
+     86: 		std::cin >> path;
+=>   87: 		vlado::drawByFile (path);
+     88: 		delete [] path;
+     89: 	}
+
+#12 0x00F4DC4D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: askCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (146):
+
+    144: 	std::cout << "If you want to create Human enter the number 7 and press ENTER button" << std::endl;
+    145: 	std::cin >> command;
+=>  146: 	doCommand (command, PersonalHuman);
+    147: }
+    148: 
+
+#13 0x00F75FC0 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (27):
+
+     25: 	{
+     26: 		reDraw (&PersonalHuman);
+=>   27: 		askCommand (&PersonalHuman);
+     28: 	//	vlado::UpdateWindow(0);
+     29: 	}
+
+#14 0x00FE05B9 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+#15 0x00FE07AD in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+#16 0x75C56359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+#17 0x77BE7B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#18 0x77BE7B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 28 2020 11:47:59, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 28 2020 12:08:55
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------
+f:\dd\vctools\crt_bld\self_x86\crt\src\isctype.c(68) : Assertion failed: c >= -1 && c <= 255
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe,
+
+ВНЕЗАПНО: signal (22, 0x4D0DDD02): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x01155894 (32-bit), Flags: Cmdre0, Thread: 0x296C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00F666AA in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: `anonymous namespace'::TX::_txOnSignal() at c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h (9746)
+# 1 0x6207989F in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: raise()
+# 2 0x62073F75 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtSetReportHookW2()
+# 3 0x6207BF13 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: VCrtDbgReportW()
+# 4 0x62073784 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtDbgReportW()
+# 5 0x6207373D in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtDbgReportW()
+# 6 0x62012E0B in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: chvalidator_l()
+# 7 0x62010C9E in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: isdigit_l()
+# 8 0x62011119 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: isdigit()
+
+# 9 0x01069E65 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::GetArgs() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (172):
+
+    170: 	{
+    171: 		fin -> get(letter);
+=>  172: 		if (isdigit(letter))
+    173: 		{
+    174: 			num += letter;
+
+#10 0x010A65E8 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::drawByFile() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (215):
+
+    213: 			const int count = 3;
+    214: 			int args[count];
+=>  215: 			vlado::GetArgs(args, &fin);
+    216: 			std::cout << args[0] << " " << args[1] << " " << args[2] << std::endl;
+    217: 			vlado::Circle (args[0], args[1], args[2]);
+
+#11 0x0103FA96 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: doCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (87):
+
+     85: 		char *path = new char[255];
+     86: 		std::cin >> path;
+=>   87: 		vlado::drawByFile (path);
+     88: 		delete [] path;
+     89: 	}
+
+#12 0x0103DC4D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: askCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (146):
+
+    144: 	std::cout << "If you want to create Human enter the number 7 and press ENTER button" << std::endl;
+    145: 	std::cin >> command;
+=>  146: 	doCommand (command, PersonalHuman);
+    147: }
+    148: 
+
+#13 0x01065FC0 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (27):
+
+     25: 	{
+     26: 		reDraw (&PersonalHuman);
+=>   27: 		askCommand (&PersonalHuman);
+     28: 	//	vlado::UpdateWindow(0);
+     29: 	}
+
+#14 0x010D05B9 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+#15 0x010D07AD in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+#16 0x75C56359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+#17 0x77BE7B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#18 0x77BE7B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 28 2020 11:47:59, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 28 2020 12:11:13
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------
+f:\dd\vctools\crt_bld\self_x86\crt\src\isctype.c(68) : Assertion failed: c >= -1 && c <= 255
+
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400] - ERROR: Внимание: Обнаружены утечки памяти!
+
+Detected memory leaks!
+Dumping objects ->
+{3094} normal block at 0x01227088, 8 bytes long.
+ Data: <        > 04 F5 0F 01 00 00 00 00 
+{1016} normal block at 0x01227578, 8 bytes long.
+ Data: <T       > 54 F7 0F 01 00 00 00 00 
+{823} normal block at 0x012276D8, 255 bytes long.
+ Data: <test.txt        > 74 65 73 74 2E 74 78 74 00 CD CD CD CD CD CD CD 
+{422} normal block at 0x012260A0, 8 bytes long.
+ Data: <h       > 68 FB 0F 01 00 00 00 00 
+Object dump complete.
+f:\dd\vctools\crt_bld\self_x86\crt\src\isctype.c(68) : Assertion failed: c >= -1 && c <= 255
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe,
+
+ВНЕЗАПНО: signal (22, 0x49FF5036): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x00395894 (32-bit), Flags: Cmdre0, Thread: 0x126C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x001A66AA in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: `anonymous namespace'::TX::_txOnSignal() at c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h (9746)
+# 1 0x6207989F in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: raise()
+# 2 0x62073F75 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtSetReportHookW2()
+# 3 0x6207BF13 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: VCrtDbgReportW()
+# 4 0x62073784 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtDbgReportW()
+# 5 0x6207373D in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtDbgReportW()
+# 6 0x62012E0B in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: chvalidator_l()
+# 7 0x62010C9E in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: isdigit_l()
+# 8 0x62011119 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: isdigit()
+
+# 9 0x002A9E65 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::GetArgs() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (172):
+
+    170: 	{
+    171: 		fin -> get(letter);
+=>  172: 		if (isdigit(letter))
+    173: 		{
+    174: 			num += letter;
+
+#10 0x002E6602 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::drawByFile() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (215):
+
+    213: 			const int count = 3;
+    214: 			int args[count];
+=>  215: 			vlado::GetArgs(args, &fin);
+    216: 			std::cout << args[0] << " " << args[1] << " " << args[2] << std::endl;
+    217: 			vlado::Circle (args[0], args[1], args[2]);
+
+#11 0x0027FA96 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: doCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (87):
+
+     85: 		char *path = new char[255];
+     86: 		std::cin >> path;
+=>   87: 		vlado::drawByFile (path);
+     88: 		delete [] path;
+     89: 	}
+
+#12 0x0027DC4D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: askCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (146):
+
+    144: 	std::cout << "If you want to create Human enter the number 7 and press ENTER button" << std::endl;
+    145: 	std::cin >> command;
+=>  146: 	doCommand (command, PersonalHuman);
+    147: }
+    148: 
+
+#13 0x002A5FC0 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (27):
+
+     25: 	{
+     26: 		reDraw (&PersonalHuman);
+=>   27: 		askCommand (&PersonalHuman);
+     28: 	//	vlado::UpdateWindow(0);
+     29: 	}
+
+#14 0x003105B9 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+#15 0x003107AD in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+#16 0x75C56359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+#17 0x77BE7B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#18 0x77BE7B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 28 2020 11:47:59, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 28 2020 12:14:39
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------
+f:\dd\vctools\crt_bld\self_x86\crt\src\isctype.c(68) : Assertion failed: c >= -1 && c <= 255
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe,
+
+ВНЕЗАПНО: signal (22, 0x926A206A): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x00CC5894 (32-bit), Flags: Cmdre0, Thread: 0xD14 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x00AD66AA in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: `anonymous namespace'::TX::_txOnSignal() at c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h (9746)
+# 1 0x61FA989F in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: raise()
+# 2 0x61FA3F75 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtSetReportHookW2()
+# 3 0x61FABF13 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: VCrtDbgReportW()
+# 4 0x61FA3784 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtDbgReportW()
+# 5 0x61FA373D in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtDbgReportW()
+# 6 0x61F42E0B in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: chvalidator_l()
+# 7 0x61F40C9E in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: isdigit_l()
+# 8 0x61F41119 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: isdigit()
+
+# 9 0x00BD9E65 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::GetArgs() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (172):
+
+    170: 	{
+    171: 		fin -> get(letter);
+=>  172: 		if (isdigit(letter))
+    173: 		{
+    174: 			num += letter;
+
+#10 0x00C16605 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::drawByFile() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (215):
+
+    213: 			const int count = 3;
+    214: 			int args[count];
+=>  215: 			vlado::GetArgs(args, &fin);
+    216: 			std::cout << args[0] << " " << args[1] << " " << args[2] << std::endl;
+    217: 			vlado::Circle (args[0], args[1], args[2]);
+
+#11 0x00BAFA96 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: doCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (87):
+
+     85: 		char *path = new char[255];
+     86: 		std::cin >> path;
+=>   87: 		vlado::drawByFile (path);
+     88: 		delete [] path;
+     89: 	}
+
+#12 0x00BADC4D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: askCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (146):
+
+    144: 	std::cout << "If you want to create Human enter the number 7 and press ENTER button" << std::endl;
+    145: 	std::cin >> command;
+=>  146: 	doCommand (command, PersonalHuman);
+    147: }
+    148: 
+
+#13 0x00BD5FC0 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (27):
+
+     25: 	{
+     26: 		reDraw (&PersonalHuman);
+=>   27: 		askCommand (&PersonalHuman);
+     28: 	//	vlado::UpdateWindow(0);
+     29: 	}
+
+#14 0x00C405B9 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+#15 0x00C407AD in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+#16 0x75C56359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+#17 0x77BE7B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#18 0x77BE7B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 28 2020 11:47:59, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 28 2020 12:24:04
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------
+c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector(72) : Assertion failed: vector iterator not dereferencable
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe,
+
+ВНЕЗАПНО: signal (22, 0xDB5F843): SIGABRT: Аварийное завершение программы, вызвана функция abort(). 
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x008EE15C (32-bit), Flags: Cmdre0, Thread: 0x2CB0 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0068D26A in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: `anonymous namespace'::TX::_txOnSignal() at c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h (9746)
+# 1 0x618E989F in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: raise()
+# 2 0x618E3F75 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtSetReportHookW2()
+# 3 0x618EBF13 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: VCrtDbgReportW()
+# 4 0x618E3784 in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtDbgReportW()
+# 5 0x618E373D in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: CrtDbgReportW()
+# 6 0x6281B91E in C:\WINDOWS\SYSTEM32\MSVCP110D.dll: std::_Debug_message()
+
+# 7 0x0078D7D6 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<Character> > >::operator*() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector (72):
+
+     70: 			|| ((_Myvec *)this->_Getcont())->_Mylast <= this->_Ptr)
+     71: 			{	// report error
+=>   72: 			_DEBUG_ERROR("vector iterator not dereferencable");
+     73: 			_SCL_SECURE_OUT_OF_RANGE;
+     74: 			}
+
+# 8 0x0078DA0F in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Character> > >::operator*() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector (324):
+
+    322: 	reference operator*() const
+    323: 		{	// return designated object
+=>  324: 		return ((reference)**(_Mybase *)this);
+    325: 		}
+    326: 
+
+# 9 0x0078D6CF in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::_Vector_iterator<std::_Vector_val<std::_Simple_types<Character> > >::operator->() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\vector (329):
+
+    327: 	pointer operator->() const
+    328: 		{	// return pointer to class object
+=>  329: 		return (_STD pointer_traits<pointer>::pointer_to(**this));
+    330: 		}
+    331: 
+
+#10 0x007CBA49 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: doCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (145):
+
+    143: 		delete [] path;
+    144: 		
+=>  145: 		MyCharacter -> end() ->loadFromFile();
+    146: 
+    147: 		
+
+#11 0x007C93EC in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: askCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (172):
+
+    170: 	std::cout << "If you want to add character from file enter the number 8 and press ENTER button" << std::endl;
+    171: 	std::cin >> command;
+=>  172: 	doCommand (command, PersonalHuman, MyCharacter);
+    173: }
+    174: 
+
+#12 0x007F20FA in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (29):
+
+     27: 	{
+     28: 		reDraw (&PersonalHuman);
+=>   29: 		askCommand (&PersonalHuman, &MyCharacters);
+     30: 	//	vlado::UpdateWindow(0);
+     31: 	}
+
+#13 0x0085C899 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+#14 0x0085CA8D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+#15 0x75C56359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+#16 0x77BE7B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#17 0x77BE7B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 28 2020 14:34:36, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 28 2020 14:34:44
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x6183E89A в функции memcpy(). Попытка записать данные по адресу 0x00000001. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x0127516C (32-bit), Flags: Cmdre0, Thread: 0x24E0 (Main), errno: 13 (Permission denied), _doserrno: 21 (Is a directory). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x6183E89A in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: memcpy()
+
+# 1 0x0101F1F2 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (1116):
+
+   1114: 			{	// make room and assign new stuff
+   1115: 			_Traits::copy(this->_Myptr(),
+=> 1116: 				_Right._Myptr() + _Roff, _Num);
+   1117: 			_Eos(_Num);
+   1118: 			}
+
+# 2 0x0101F10B in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (1099):
+
+   1097: 	_Myt& assign(const _Myt& _Right)
+   1098: 		{	// assign _Right
+=> 1099: 		return (assign(_Right, 0, npos));
+   1100: 		}
+   1101: 
+
+# 3 0x00FDE632 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::operator=() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (982):
+
+    980:  #endif /* _HAS_CPP0X */
+    981: 
+=>  982: 			assign(_Right);
+    983: 			}
+    984: 		return (*this);
+
+# 4 0x011BA6CE in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::readFromFile() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (324):
+
+    322: 			int args[count];
+    323: 			vlado::GetArgs(args, &fin);
+=>  324: 			AnimeCommands[AnimeComNum].name = command;
+    325: 			AnimeCommands[AnimeComNum].COLOR = args[0];
+    326: 			AnimeComNum++;
+
+# 5 0x011538B8 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: doCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (97):
+
+     95: 		string path;
+     96: 		std::cin >> path;
+=>   97: 		vlado::readFromFile(path);
+     98: 		vlado::drawByFile();
+     99: 	}
+
+# 6 0x011516CC in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: askCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (213):
+
+    211: 	std::cout << "If you want to add character from file enter the number 8 and press ENTER button" << std::endl;
+    212: 	std::cin >> command;
+=>  213: 	doCommand (command, PersonalHuman, MyCharacter);
+    214: }
+    215: 
+
+# 7 0x0117A80A in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (30):
+
+     28: 	{
+     29: 		reDraw (&PersonalHuman);
+=>   30: 		askCommand (&PersonalHuman, &MyCharacters);
+     31: 	//	vlado::UpdateWindow(0);
+     32: 	}
+
+# 8 0x011E2319 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+# 9 0x011E250D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+#10 0x75C56359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+#11 0x77BE7B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#12 0x77BE7B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 28 2020 20:12:10, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 28 2020 20:21:33
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x6183E89A в функции memcpy(). Попытка записать данные по адресу 0x00000001. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x0127516C (32-bit), Flags: Cmdre0, Thread: 0x24E0 (Main), errno: 13 (Permission denied), _doserrno: 21 (Is a directory). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x6183E89A in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: memcpy()
+
+# 1 0x0101F1F2 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (1116):
+
+   1114: 			{	// make room and assign new stuff
+   1115: 			_Traits::copy(this->_Myptr(),
+=> 1116: 				_Right._Myptr() + _Roff, _Num);
+   1117: 			_Eos(_Num);
+   1118: 			}
+
+# 2 0x0101F10B in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (1099):
+
+   1097: 	_Myt& assign(const _Myt& _Right)
+   1098: 		{	// assign _Right
+=> 1099: 		return (assign(_Right, 0, npos));
+   1100: 		}
+   1101: 
+
+# 3 0x00FDE632 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::operator=() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (982):
+
+    980:  #endif /* _HAS_CPP0X */
+    981: 
+=>  982: 			assign(_Right);
+    983: 			}
+    984: 		return (*this);
+
+# 4 0x011BA6CE in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::readFromFile() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (324):
+
+    322: 			int args[count];
+    323: 			vlado::GetArgs(args, &fin);
+=>  324: 			AnimeCommands[AnimeComNum].name = command;
+    325: 			AnimeCommands[AnimeComNum].COLOR = args[0];
+    326: 			AnimeComNum++;
+
+# 5 0x011538B8 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: doCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (97):
+
+     95: 		string path;
+     96: 		std::cin >> path;
+=>   97: 		vlado::readFromFile(path);
+     98: 		vlado::drawByFile();
+     99: 	}
+
+# 6 0x011516CC in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: askCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (213):
+
+    211: 	std::cout << "If you want to add character from file enter the number 8 and press ENTER button" << std::endl;
+    212: 	std::cin >> command;
+=>  213: 	doCommand (command, PersonalHuman, MyCharacter);
+    214: }
+    215: 
+
+# 7 0x0117A80A in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (30):
+
+     28: 	{
+     29: 		reDraw (&PersonalHuman);
+=>   30: 		askCommand (&PersonalHuman, &MyCharacters);
+     31: 	//	vlado::UpdateWindow(0);
+     32: 	}
+
+# 8 0x011E2319 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+# 9 0x011E250D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+#10 0x75C56359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+#11 0x77BE7B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#12 0x77BE7B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 28 2020 20:12:10, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 28 2020 20:21:34
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x6183E89A в функции memcpy(). Попытка записать данные по адресу 0x00000001. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x010D516C (32-bit), Flags: Cmdre0, Thread: 0x2620 (Main), errno: 13 (Permission denied), _doserrno: 21 (Is a directory). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x6183E89A in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: memcpy()
+
+# 1 0x00E7F1F2 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (1116):
+
+   1114: 			{	// make room and assign new stuff
+   1115: 			_Traits::copy(this->_Myptr(),
+=> 1116: 				_Right._Myptr() + _Roff, _Num);
+   1117: 			_Eos(_Num);
+   1118: 			}
+
+# 2 0x00E7F10B in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (1099):
+
+   1097: 	_Myt& assign(const _Myt& _Right)
+   1098: 		{	// assign _Right
+=> 1099: 		return (assign(_Right, 0, npos));
+   1100: 		}
+   1101: 
+
+# 3 0x00E3E632 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::operator=() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (982):
+
+    980:  #endif /* _HAS_CPP0X */
+    981: 
+=>  982: 			assign(_Right);
+    983: 			}
+    984: 		return (*this);
+
+# 4 0x0101A75D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::readFromFile() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (334):
+
+    332: 			vlado::GetArgs(args, &fin);
+    333: 			
+=>  334: 			AnimeCommands[AnimeComNum].name = command;
+    335: 			AnimeCommands[AnimeComNum].x = args[0];
+    336: 			AnimeCommands[AnimeComNum].y = args[1];
+
+# 5 0x00FB38B8 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: doCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (97):
+
+     95: 		string path;
+     96: 		std::cin >> path;
+=>   97: 		vlado::readFromFile(path);
+     98: 		vlado::drawByFile();
+     99: 	}
+
+# 6 0x00FB16CC in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: askCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (213):
+
+    211: 	std::cout << "If you want to add character from file enter the number 8 and press ENTER button" << std::endl;
+    212: 	std::cin >> command;
+=>  213: 	doCommand (command, PersonalHuman, MyCharacter);
+    214: }
+    215: 
+
+# 7 0x00FDA80A in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (30):
+
+     28: 	{
+     29: 		reDraw (&PersonalHuman);
+=>   30: 		askCommand (&PersonalHuman, &MyCharacters);
+     31: 	//	vlado::UpdateWindow(0);
+     32: 	}
+
+# 8 0x01042329 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+# 9 0x0104251D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+#10 0x75C56359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+#11 0x77BE7B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#12 0x77BE7B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 28 2020 20:25:09, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 28 2020 20:25:17
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x6183E89A в функции memcpy(). Попытка записать данные по адресу 0x00000001. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x010D516C (32-bit), Flags: Cmdre0, Thread: 0x2620 (Main), errno: 13 (Permission denied), _doserrno: 21 (Is a directory). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x6183E89A in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: memcpy()
+
+# 1 0x00E7F1F2 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (1116):
+
+   1114: 			{	// make room and assign new stuff
+   1115: 			_Traits::copy(this->_Myptr(),
+=> 1116: 				_Right._Myptr() + _Roff, _Num);
+   1117: 			_Eos(_Num);
+   1118: 			}
+
+# 2 0x00E7F10B in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (1099):
+
+   1097: 	_Myt& assign(const _Myt& _Right)
+   1098: 		{	// assign _Right
+=> 1099: 		return (assign(_Right, 0, npos));
+   1100: 		}
+   1101: 
+
+# 3 0x00E3E632 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::operator=() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (982):
+
+    980:  #endif /* _HAS_CPP0X */
+    981: 
+=>  982: 			assign(_Right);
+    983: 			}
+    984: 		return (*this);
+
+# 4 0x0101A75D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::readFromFile() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (334):
+
+    332: 			vlado::GetArgs(args, &fin);
+    333: 			
+=>  334: 			AnimeCommands[AnimeComNum].name = command;
+    335: 			AnimeCommands[AnimeComNum].x = args[0];
+    336: 			AnimeCommands[AnimeComNum].y = args[1];
+
+# 5 0x00FB38B8 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: doCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (97):
+
+     95: 		string path;
+     96: 		std::cin >> path;
+=>   97: 		vlado::readFromFile(path);
+     98: 		vlado::drawByFile();
+     99: 	}
+
+# 6 0x00FB16CC in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: askCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (213):
+
+    211: 	std::cout << "If you want to add character from file enter the number 8 and press ENTER button" << std::endl;
+    212: 	std::cin >> command;
+=>  213: 	doCommand (command, PersonalHuman, MyCharacter);
+    214: }
+    215: 
+
+# 7 0x00FDA80A in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (30):
+
+     28: 	{
+     29: 		reDraw (&PersonalHuman);
+=>   30: 		askCommand (&PersonalHuman, &MyCharacters);
+     31: 	//	vlado::UpdateWindow(0);
+     32: 	}
+
+# 8 0x01042329 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+# 9 0x0104251D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+#10 0x75C56359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+#11 0x77BE7B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#12 0x77BE7B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 28 2020 20:25:09, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 28 2020 20:25:16
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x6183E89A в функции memcpy(). Попытка записать данные по адресу 0x00000001. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x00F6516C (32-bit), Flags: Cmdre0, Thread: 0x28E4 (Main), errno: 13 (Permission denied), _doserrno: 21 (Is a directory). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x6183E89A in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: memcpy()
+
+# 1 0x00D0F1F2 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (1116):
+
+   1114: 			{	// make room and assign new stuff
+   1115: 			_Traits::copy(this->_Myptr(),
+=> 1116: 				_Right._Myptr() + _Roff, _Num);
+   1117: 			_Eos(_Num);
+   1118: 			}
+
+# 2 0x00D0F10B in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (1099):
+
+   1097: 	_Myt& assign(const _Myt& _Right)
+   1098: 		{	// assign _Right
+=> 1099: 		return (assign(_Right, 0, npos));
+   1100: 		}
+   1101: 
+
+# 3 0x00CCE632 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::operator=() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (982):
+
+    980:  #endif /* _HAS_CPP0X */
+    981: 
+=>  982: 			assign(_Right);
+    983: 			}
+    984: 		return (*this);
+
+# 4 0x00EAA75D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::readFromFile() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (334):
+
+    332: 			vlado::GetArgs(args, &fin);
+    333: 			
+=>  334: 			AnimeCommands[AnimeComNum].name = command;
+    335: 			AnimeCommands[AnimeComNum].x = args[0];
+    336: 			AnimeCommands[AnimeComNum].y = args[1];
+
+# 5 0x00E438B8 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: doCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (97):
+
+     95: 		string path;
+     96: 		std::cin >> path;
+=>   97: 		vlado::readFromFile(path);
+     98: 		vlado::drawByFile();
+     99: 	}
+
+# 6 0x00E416CC in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: askCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (213):
+
+    211: 	std::cout << "If you want to add character from file enter the number 8 and press ENTER button" << std::endl;
+    212: 	std::cin >> command;
+=>  213: 	doCommand (command, PersonalHuman, MyCharacter);
+    214: }
+    215: 
+
+# 7 0x00E6A80A in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (30):
+
+     28: 	{
+     29: 		reDraw (&PersonalHuman);
+=>   30: 		askCommand (&PersonalHuman, &MyCharacters);
+     31: 	//	vlado::UpdateWindow(0);
+     32: 	}
+
+# 8 0x00ED2329 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+# 9 0x00ED251D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+#10 0x75C56359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+#11 0x77BE7B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#12 0x77BE7B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 28 2020 20:25:09, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 28 2020 20:25:56
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x6183E89A в функции memcpy(). Попытка записать данные по адресу 0x00000001. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x00F6516C (32-bit), Flags: Cmdre0, Thread: 0x28E4 (Main), errno: 13 (Permission denied), _doserrno: 21 (Is a directory). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x6183E89A in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: memcpy()
+
+# 1 0x00D0F1F2 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (1116):
+
+   1114: 			{	// make room and assign new stuff
+   1115: 			_Traits::copy(this->_Myptr(),
+=> 1116: 				_Right._Myptr() + _Roff, _Num);
+   1117: 			_Eos(_Num);
+   1118: 			}
+
+# 2 0x00D0F10B in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (1099):
+
+   1097: 	_Myt& assign(const _Myt& _Right)
+   1098: 		{	// assign _Right
+=> 1099: 		return (assign(_Right, 0, npos));
+   1100: 		}
+   1101: 
+
+# 3 0x00CCE632 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::operator=() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (982):
+
+    980:  #endif /* _HAS_CPP0X */
+    981: 
+=>  982: 			assign(_Right);
+    983: 			}
+    984: 		return (*this);
+
+# 4 0x00EAA75D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::readFromFile() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (334):
+
+    332: 			vlado::GetArgs(args, &fin);
+    333: 			
+=>  334: 			AnimeCommands[AnimeComNum].name = command;
+    335: 			AnimeCommands[AnimeComNum].x = args[0];
+    336: 			AnimeCommands[AnimeComNum].y = args[1];
+
+# 5 0x00E438B8 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: doCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (97):
+
+     95: 		string path;
+     96: 		std::cin >> path;
+=>   97: 		vlado::readFromFile(path);
+     98: 		vlado::drawByFile();
+     99: 	}
+
+# 6 0x00E416CC in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: askCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (213):
+
+    211: 	std::cout << "If you want to add character from file enter the number 8 and press ENTER button" << std::endl;
+    212: 	std::cin >> command;
+=>  213: 	doCommand (command, PersonalHuman, MyCharacter);
+    214: }
+    215: 
+
+# 7 0x00E6A80A in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (30):
+
+     28: 	{
+     29: 		reDraw (&PersonalHuman);
+=>   30: 		askCommand (&PersonalHuman, &MyCharacters);
+     31: 	//	vlado::UpdateWindow(0);
+     32: 	}
+
+# 8 0x00ED2329 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+# 9 0x00ED251D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+#10 0x75C56359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+#11 0x77BE7B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#12 0x77BE7B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 28 2020 20:25:09, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 28 2020 20:25:57
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x6183E89A в функции memcpy(). Попытка записать данные по адресу 0x00000001. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x00FF516C (32-bit), Flags: Cmdre0, Thread: 0x28FC (Main), errno: 13 (Permission denied), _doserrno: 21 (Is a directory). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x6183E89A in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: memcpy()
+
+# 1 0x00D9F1F2 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (1116):
+
+   1114: 			{	// make room and assign new stuff
+   1115: 			_Traits::copy(this->_Myptr(),
+=> 1116: 				_Right._Myptr() + _Roff, _Num);
+   1117: 			_Eos(_Num);
+   1118: 			}
+
+# 2 0x00D9F10B in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (1099):
+
+   1097: 	_Myt& assign(const _Myt& _Right)
+   1098: 		{	// assign _Right
+=> 1099: 		return (assign(_Right, 0, npos));
+   1100: 		}
+   1101: 
+
+# 3 0x00D5E632 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::operator=() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (982):
+
+    980:  #endif /* _HAS_CPP0X */
+    981: 
+=>  982: 			assign(_Right);
+    983: 			}
+    984: 		return (*this);
+
+# 4 0x00F3A811 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::readFromFile() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (344):
+
+    342: 		if (command == "txClear")
+    343: 		{
+=>  344: 			AnimeCommands[AnimeComNum].name = command;
+    345: 			AnimeComNum++;
+    346: 			vlado::Clear ();
+
+# 5 0x00ED38B8 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: doCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (97):
+
+     95: 		string path;
+     96: 		std::cin >> path;
+=>   97: 		vlado::readFromFile(path);
+     98: 		vlado::drawByFile();
+     99: 	}
+
+# 6 0x00ED16CC in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: askCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (213):
+
+    211: 	std::cout << "If you want to add character from file enter the number 8 and press ENTER button" << std::endl;
+    212: 	std::cin >> command;
+=>  213: 	doCommand (command, PersonalHuman, MyCharacter);
+    214: }
+    215: 
+
+# 7 0x00EFA80A in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (30):
+
+     28: 	{
+     29: 		reDraw (&PersonalHuman);
+=>   30: 		askCommand (&PersonalHuman, &MyCharacters);
+     31: 	//	vlado::UpdateWindow(0);
+     32: 	}
+
+# 8 0x00F62329 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+# 9 0x00F6251D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+#10 0x75C56359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+#11 0x77BE7B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#12 0x77BE7B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 28 2020 20:26:53, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 28 2020 20:31:59
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x6183E89A в функции memcpy(). Попытка записать данные по адресу 0x00000001. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x00FF516C (32-bit), Flags: Cmdre0, Thread: 0x28FC (Main), errno: 13 (Permission denied), _doserrno: 21 (Is a directory). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x6183E89A in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: memcpy()
+
+# 1 0x00D9F1F2 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (1116):
+
+   1114: 			{	// make room and assign new stuff
+   1115: 			_Traits::copy(this->_Myptr(),
+=> 1116: 				_Right._Myptr() + _Roff, _Num);
+   1117: 			_Eos(_Num);
+   1118: 			}
+
+# 2 0x00D9F10B in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (1099):
+
+   1097: 	_Myt& assign(const _Myt& _Right)
+   1098: 		{	// assign _Right
+=> 1099: 		return (assign(_Right, 0, npos));
+   1100: 		}
+   1101: 
+
+# 3 0x00D5E632 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::operator=() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (982):
+
+    980:  #endif /* _HAS_CPP0X */
+    981: 
+=>  982: 			assign(_Right);
+    983: 			}
+    984: 		return (*this);
+
+# 4 0x00F3A811 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::readFromFile() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (344):
+
+    342: 		if (command == "txClear")
+    343: 		{
+=>  344: 			AnimeCommands[AnimeComNum].name = command;
+    345: 			AnimeComNum++;
+    346: 			vlado::Clear ();
+
+# 5 0x00ED38B8 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: doCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (97):
+
+     95: 		string path;
+     96: 		std::cin >> path;
+=>   97: 		vlado::readFromFile(path);
+     98: 		vlado::drawByFile();
+     99: 	}
+
+# 6 0x00ED16CC in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: askCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (213):
+
+    211: 	std::cout << "If you want to add character from file enter the number 8 and press ENTER button" << std::endl;
+    212: 	std::cin >> command;
+=>  213: 	doCommand (command, PersonalHuman, MyCharacter);
+    214: }
+    215: 
+
+# 7 0x00EFA80A in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (30):
+
+     28: 	{
+     29: 		reDraw (&PersonalHuman);
+=>   30: 		askCommand (&PersonalHuman, &MyCharacters);
+     31: 	//	vlado::UpdateWindow(0);
+     32: 	}
+
+# 8 0x00F62329 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+# 9 0x00F6251D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+#10 0x75C56359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+#11 0x77BE7B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#12 0x77BE7B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 28 2020 20:26:53, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 28 2020 20:31:58
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x6183E89A в функции memcpy(). Попытка записать данные по адресу 0x00000001. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x0128516C (32-bit), Flags: Cmdre0, Thread: 0x1BEC (Main), errno: 13 (Permission denied), _doserrno: 21 (Is a directory). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x6183E89A in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: memcpy()
+
+# 1 0x0102F1F2 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (1116):
+
+   1114: 			{	// make room and assign new stuff
+   1115: 			_Traits::copy(this->_Myptr(),
+=> 1116: 				_Right._Myptr() + _Roff, _Num);
+   1117: 			_Eos(_Num);
+   1118: 			}
+
+# 2 0x0102F10B in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (1099):
+
+   1097: 	_Myt& assign(const _Myt& _Right)
+   1098: 		{	// assign _Right
+=> 1099: 		return (assign(_Right, 0, npos));
+   1100: 		}
+   1101: 
+
+# 3 0x00FEE632 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::operator=() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (982):
+
+    980:  #endif /* _HAS_CPP0X */
+    981: 
+=>  982: 			assign(_Right);
+    983: 			}
+    984: 		return (*this);
+
+# 4 0x011CA811 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::readFromFile() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (344):
+
+    342: 		if (command == "txClear")
+    343: 		{
+=>  344: 			AnimeCommands[AnimeComNum].name = command;
+    345: 			AnimeComNum++;
+    346: 			vlado::Clear ();
+
+# 5 0x011638B8 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: doCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (97):
+
+     95: 		string path;
+     96: 		std::cin >> path;
+=>   97: 		vlado::readFromFile(path);
+     98: 		vlado::drawByFile();
+     99: 	}
+
+# 6 0x011616CC in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: askCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (213):
+
+    211: 	std::cout << "If you want to add character from file enter the number 8 and press ENTER button" << std::endl;
+    212: 	std::cin >> command;
+=>  213: 	doCommand (command, PersonalHuman, MyCharacter);
+    214: }
+    215: 
+
+# 7 0x0118A80A in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (30):
+
+     28: 	{
+     29: 		reDraw (&PersonalHuman);
+=>   30: 		askCommand (&PersonalHuman, &MyCharacters);
+     31: 	//	vlado::UpdateWindow(0);
+     32: 	}
+
+# 8 0x011F2329 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+# 9 0x011F251D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+#10 0x75C56359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+#11 0x77BE7B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#12 0x77BE7B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 28 2020 20:36:54, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 28 2020 20:43:28
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x6183E89A в функции memcpy(). Попытка записать данные по адресу 0x00000001. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400], Instance: 0x0128516C (32-bit), Flags: Cmdre0, Thread: 0x1BEC (Main), errno: 13 (Permission denied), _doserrno: 21 (Is a directory). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x6183E89A in C:\WINDOWS\SYSTEM32\MSVCR110D.dll: memcpy()
+
+# 1 0x0102F1F2 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (1116):
+
+   1114: 			{	// make room and assign new stuff
+   1115: 			_Traits::copy(this->_Myptr(),
+=> 1116: 				_Right._Myptr() + _Roff, _Num);
+   1117: 			_Eos(_Num);
+   1118: 			}
+
+# 2 0x0102F10B in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::assign() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (1099):
+
+   1097: 	_Myt& assign(const _Myt& _Right)
+   1098: 		{	// assign _Right
+=> 1099: 		return (assign(_Right, 0, npos));
+   1100: 		}
+   1101: 
+
+# 3 0x00FEE632 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: std::basic_string<char,std::char_traits<char>,std::allocator<char> >::operator=() at c:\program files (x86)\microsoft visual studio 11.0\vc\include\xstring (982):
+
+    980:  #endif /* _HAS_CPP0X */
+    981: 
+=>  982: 			assign(_Right);
+    983: 			}
+    984: 		return (*this);
+
+# 4 0x011CA811 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: vlado::readFromFile() at c:\bass24\c\livespec\txlibtest\txlibtest\vladograpics.cpp (344):
+
+    342: 		if (command == "txClear")
+    343: 		{
+=>  344: 			AnimeCommands[AnimeComNum].name = command;
+    345: 			AnimeComNum++;
+    346: 			vlado::Clear ();
+
+# 5 0x011638B8 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: doCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (97):
+
+     95: 		string path;
+     96: 		std::cin >> path;
+=>   97: 		vlado::readFromFile(path);
+     98: 		vlado::drawByFile();
+     99: 	}
+
+# 6 0x011616CC in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: askCommand() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (213):
+
+    211: 	std::cout << "If you want to add character from file enter the number 8 and press ENTER button" << std::endl;
+    212: 	std::cin >> command;
+=>  213: 	doCommand (command, PersonalHuman, MyCharacter);
+    214: }
+    215: 
+
+# 7 0x0118A80A in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmain() at c:\bass24\c\livespec\txlibtest\txlibtest\txlibtest.cpp (30):
+
+     28: 	{
+     29: 		reDraw (&PersonalHuman);
+=>   30: 		askCommand (&PersonalHuman, &MyCharacters);
+     31: 	//	vlado::UpdateWindow(0);
+     32: 	}
+
+# 8 0x011F2329 in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: __tmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (533)
+# 9 0x011F251D in C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe: wmainCRTStartup() at f:\dd\vctools\crt_bld\self_x86\crt\src\crtexe.c (376)
+#10 0x75C56359 in C:\WINDOWS\System32\KERNEL32.dll: BaseThreadInitThunk()
+#11 0x77BE7B74 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+#12 0x77BE7B44 in C:\WINDOWS\SYSTEM32\ntdll.dll: RtlGetAppContainerNamedObjectPath()
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 165, Date: 2020-02-23 20:43:39 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\bass24\c\livespec\txlibtest\txlibtest\txlib.h
+Compiled:	Feb 28 2020 20:36:54, MSVS 1700, std=199711L, MSVC Runtime, 32-bit, DEBUG
+Started:	Feb 28 2020 20:43:28
+
+Run file:	C:\bass24\c\livespec\txlibtest\Debug\txlibtest.exe
+Directory:	C:\bass24\c\livespec\txlibtest\txlibtest
+
+--------------------------------------------------

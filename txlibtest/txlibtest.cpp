@@ -3,141 +3,214 @@
 #include "stdafx.h"
 #include "Human.h"
 #include "HumanManager.h"
+#include "Character.h"
 #include <iostream>
- 
-void askCommand(Human *);
-void doCommand(Human *, int);
-void raiseHand(Human *);
+
+#define PI 3.141592653
+
+void askCommand(std::vector <Human> *, std::vector <Character> *);
+void riseRightHand(std::vector <Human> *);
+void doCommand(int, std::vector <Human> *, std::vector <Character> *);
+void riseHand(int, std::vector <Human> *);
 void testGraphics(int , int);
+void reDraw(std::vector <Human> *);
+void reDraw(std::vector <Character> *);
+int askNumber();
 
 
 int _tmain(int argc, _TCHAR* argv[])
 {
 	vlado::Init();
 
-	Human PersonalHuman (50, 756, 50);
-
+	std::vector <Human> PersonalHuman;
+	std::vector <Character> MyCharacters;
 	while (true)
 	{
-		askCommand (&PersonalHuman);
+		reDraw (&PersonalHuman);
+		askCommand (&PersonalHuman, &MyCharacters);
 	//	vlado::UpdateWindow(0);
 	}
-	
 	vlado::Close();
 	return 0;
 }
 
-
-void raiseHand(Human *PersonalHuman)
+void reDraw(std::vector <Human> * PersonalHuman)
 {
-	HumanManager * manager = new HumanManager;
-	int  tangle;
-	std::cout << "Enter the angle" << std::endl;
-	std::cin >> tangle;
-	manager -> RightHandUp (PersonalHuman, (double)tangle);
+	for (auto human = PersonalHuman -> begin(); human != PersonalHuman -> end(); ++human) 
+		human -> DrawHuman ();
 }
 
-void doCommand(Human *PersonalHuman, int command)
+void reDraw(std::vector <Character> * MyCharatcer)
 {
-	if (command < 1 || command > 6)
+	for (auto human = MyCharatcer -> begin(); human != MyCharatcer -> end(); ++human) 
+		human -> Drawing ();
+}
+
+void riseHand(int number,std::vector <Human> * PersonalHuman)
+{
+	HumanManager * manager = new HumanManager;
+	int tangle = 0;
+	std::cout << "Enter the angle" << std::endl;
+	std::cin >> tangle;
+	double OldTangle = (double) PersonalHuman -> at (number).GetRightHandTangle();
+	while (tangle != OldTangle)
 	{
-		std::cout << "Are you serious? I tell you press 1 .. 6, not " << command
+		vlado::Clear ();
+		manager -> RightHandUp (&PersonalHuman -> at (number), OldTangle);
+		OldTangle += (tangle > OldTangle ? 1 : -1);
+		PersonalHuman -> at (number).SetRHandAngle (OldTangle);
+		reDraw (PersonalHuman);
+		vlado::Sleep (40);
+	}
+}
+
+void doCommand(int command, std::vector <Human> * PersonalHuman, std::vector <Character> * MyCharacter)
+{
+	if (command < 1 || command > 8)
+	{
+		std::cout << "Are you serious? I tell you press 1 .. 8, not " << command
 				  << std::endl << "Ok, i'll give you another try" << std::endl;
 		Sleep (1000);
-		askCommand(PersonalHuman);
+		askCommand (PersonalHuman, MyCharacter);
 	}
 	if (command == 1)
 	{
-		PersonalHuman -> changeColor (); 
+		int number = askNumber ();
+		PersonalHuman -> at (number).changeColor(); 
 	}
 	if (command == 2)
 	{
-		PersonalHuman -> MoveTo ();
+		txClearConsole();
+		std::cout << "NOTICE: All your animation automaticly sending to Disney!" << std::endl;
+		vlado::AnimeCreator();
 	}
 	if (command == 3)
 	{
-		raiseHand (PersonalHuman);
+		int number = askNumber ();
+		riseHand (number, PersonalHuman);
 	}
 	if (command == 4)
 	{
 		std::cout << "OK, now enter the path to file and press ENTER" << std::endl;
-		char *path = new char[255];
+		string path;
 		std::cin >> path;
-		vlado::drawByFile(path);
-		delete [] path;
+		vlado::readFromFile(path);
+		vlado::drawByFile();
 	}
 	if (command == 5)
 	{
 		std::cout << "Press ESC to leave this mode" << std::endl;
-		vlado::drawByMouse();
+		vlado::drawByMouse ();
 	}
 	if (command == 6)
 	{
+		std::cout << "Enter the name of character:" << std::endl;
+		std::string name;
+		std::cin >> name;
+		auto it = std::find_if(MyCharacter -> begin(), MyCharacter -> end(), [&name](Character& obj) {return obj.GetName() == name;});
+		if (it != MyCharacter -> end())
+		{
+		// found element. it is an iterator to the first matching element.
+		// if you really need the index, you can also get it:
+			auto index = std::distance(MyCharacter -> begin(), it);
+			//MyCharacter -> at(index).loadFromFile();
+			std::cout << "Press ESC to leave this mode" << std::endl;
+			HumanManager * manager = new HumanManager;
+			while (!vlado::isKeyPressed (VK_ESCAPE))
+			{
+				//vlado::Clear();
+				manager -> attach (it -> GetX(), it -> GetY(), 
+								   it -> GetXR(), it -> GetYR());
+				if (manager -> isAttached)
+				{
+					std::cout << "ATTACHED" << std::endl;
+					if (manager -> drag (&MyCharacter -> at(index))) 
+					{
+						vlado::Clear();
+						reDraw (MyCharacter);
+					}
+				}
+				
+				vlado::Sleep (50);
+			}
+			vlado::SetIsDrawing();
+			delete manager; 
+
+
+		}
+		
+
+		/* int number = askNumber ();
+		auto NUM = PersonalHuman -> begin () + number;
 		std::cout << "Press ESC to leave this mode" << std::endl;
 		HumanManager * manager = new HumanManager;
-		vlado::BeginDraw();
 		while (!vlado::isKeyPressed (VK_ESCAPE))
 		{
-			manager -> attach (PersonalHuman -> GetX(), PersonalHuman -> GetY(), 
-							   PersonalHuman -> GetXR(), PersonalHuman -> GetYR());
+			//vlado::Clear();
+			manager -> attach (NUM -> GetX(), NUM -> GetY(), 
+							   NUM -> GetXR(), NUM -> GetYR());
 			if (manager -> isAttached)
 			{
-				manager -> drag (PersonalHuman);
+				if (manager -> drag (&PersonalHuman -> at(number))) {vlado::Clear();}
 			}
-			vlado::Sleep(20);
+			reDraw (PersonalHuman);
+			vlado::Sleep (50);
 		}
-		vlado::EndDraw();
 		delete manager; 
-		/* 
-		vlado::SetFillColor (TX_BLACK);
-		vlado::Clear ();
-		int x = 60, y = 500, isAttach = 0;
-		testGraphics (x, y);
-		int mouseOldX = vlado::MouseX(), mouseOldY = vlado::MouseY();
-		while (true)
-		{
-			if (vlado::MouseState() & 1 
-				&& vlado::MouseX() > x && vlado::MouseX() < x + 100
-				&& vlado::MouseY() < y && vlado::MouseY() > y - 150 - 60) 
-				isAttach = 1; 
-			else 
-				isAttach = 0;
-			
-			if (isAttach)
-			{
-				std::cout << "ATTACH" << std::endl;
-				vlado::SetColor (RGB (90, 200, 30));
-				x = vlado::MouseX();
-				y = vlado::MouseY();
-			}
-			
-			if (mouseOldX != vlado::MouseX() || mouseOldY != vlado::MouseY())
-			{
-				std::cout << "DRAG" << std::endl;
-				testGraphics (x, y);
-			}
-
-			mouseOldX = vlado::MouseX();
-			mouseOldY = vlado::MouseY();
-
-			txSleep();
-		} 
 		*/
+	}
+	if (command == 7)
+	{
+		int x, y, height;
+		std::cout << "Enter the position and height of the Human" << std::endl;
+		std::cin >> x >> y >> height;
+		Human * HtoPush = new Human (x, y, height);
+		PersonalHuman -> push_back (*HtoPush);
+		delete HtoPush;
+	}
+	if (command == 8)
+	{
+		std::cout << "OK, now enter the path to file and press ENTER" << std::endl;
+		string path;
+		std::cin >> path;
+
+		int i = 0;
+		string CharacterName;
+		while (path[i] != '.')
+		{
+			CharacterName += path[i];
+			i++;
+		}
+
+		Character* ChToPush = new Character (CharacterName, path);
+		MyCharacter -> push_back (*ChToPush);
+		delete ChToPush;
+		
 	}
 }
 
-void askCommand(Human *PersonalHuman)
+int askNumber()
+{
+	std::cout << "Chose number of human" << std::endl;
+	int number = 0;
+	std::cin >> number;
+	return number;
+}
+
+void askCommand(std::vector <Human> * PersonalHuman, std::vector <Character> * MyCharacter)
 {
 	int command = 0;
 	system ("CLS");
-	std::cout << "If you want change color enter the number 1 and press ENTER button" << std::endl;
-	std::cout << "If you want move to new coord enter the number 2 and press ENTER button" << std::endl;
-	std::cout << "If you want raise his right hand enter the number 3 and press ENTER button" << std::endl;
+	std::cout << "If you want to change color enter the number 1 and press ENTER button" << std::endl;
+	std::cout << "If you want to create your animation enter the number 2 and press ENTER button" << std::endl;
+	std::cout << "If you want to raise his right hand enter the number 3 and press ENTER button" << std::endl;
 	std::cout << "If you want to draw picture by log file enter the number 4 and press the butt" << std::endl;
 	std::cout << "If you want to draw circle by mouse position enter the number 5 and press ENTER button" << std::endl;
-	std::cout << "If you want to change position of Human by mouse enter the number 6 and press ENTER button" << std::endl;
+	std::cout << "If you want to change position of character by mouse enter the number 6 and press ENTER button" << std::endl;
+	std::cout << "If you want to create Human enter the number 7 and press ENTER button" << std::endl;
+	std::cout << "If you want to add character from file enter the number 8 and press ENTER button" << std::endl;
 	std::cin >> command;
-	doCommand(PersonalHuman, command);
+	doCommand (command, PersonalHuman, MyCharacter);
 }
 
 void testGraphics(int x, int y)

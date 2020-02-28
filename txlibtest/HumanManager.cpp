@@ -25,26 +25,15 @@ void HumanManager::attach(int x, int y, int xl, int yl)
 void HumanManager::RightHandUp(Human * PersonalHuman, double tangle)
 {
 	POINT RightHand;
-	double OldTangle = double (PersonalHuman -> GetRightHandTangle ());
-	double MoveTangle;
-	vlado::BeginDraw();
-	while (tangle != OldTangle)
-	{
-		MoveTangle = (OldTangle * PI) / 180;
-		RightHand.x = (PersonalHuman -> GetX () + PersonalHuman -> GetHeight()) + PersonalHuman -> GetHeight() * cos (MoveTangle);
-		RightHand.y = (PersonalHuman -> GetY () - PersonalHuman -> GetHeight() * 3) + PersonalHuman -> GetHeight() * sin (MoveTangle);
-		PersonalHuman -> SetRHandXY (RightHand);
-		PersonalHuman -> DrawHuman ();
-		OldTangle += (tangle < OldTangle ? -1 : 1);
-		PersonalHuman -> SetRHandAngle (OldTangle);
-		vlado::Sleep(10);
-		std:: cout << OldTangle << std::endl;
-	}
-	vlado::EndDraw();
+	double MoveTangle = (tangle * PI) / 180;
+	RightHand.x = (PersonalHuman -> GetX () + PersonalHuman -> GetHeight()) + PersonalHuman -> GetHeight() * cos (MoveTangle);
+	RightHand.y = (PersonalHuman -> GetY () - PersonalHuman -> GetHeight() * 3) + PersonalHuman -> GetHeight() * sin (MoveTangle);
+	PersonalHuman -> SetRHandXY (RightHand);
 }
 
-void HumanManager::drag(Human * PersonalHuman)
+int HumanManager::drag(Human * PersonalHuman)
 {
+	int ShouldIRedraw = 0;
 	POINT HumanCoord = {PersonalHuman -> GetX(), PersonalHuman -> GetY()};
 	POINT MouseNew = vlado::MouseCoord();
 	POINT HumanGoTo = {HumanCoord.x + MouseNew.x - MouseOld.x,
@@ -53,10 +42,37 @@ void HumanManager::drag(Human * PersonalHuman)
 	if (MouseOld.x != MouseNew.x ||
 		MouseOld.y != MouseNew.y)
 	{
-		PersonalHuman -> DrawHuman();
+		ShouldIRedraw = 1;	
+	}
+	else
+	{
+		ShouldIRedraw = 0;
 	}
 	MouseOld.x = MouseNew.x; 
 	MouseOld.y = MouseNew.y; 
+	return (ShouldIRedraw);
+}
+
+int HumanManager::drag(Character * character)
+{
+	int ShouldIRedraw = 0;
+	POINT HumanCoord = {character -> GetX(), character -> GetY()};
+	POINT MouseNew = vlado::MouseCoord();
+	POINT HumanGoTo = {HumanCoord.x + MouseNew.x - MouseOld.x,
+					   HumanCoord.y + MouseNew.y - MouseOld.y};
+	character -> SetCoord (HumanGoTo);
+	if (MouseOld.x != MouseNew.x ||
+		MouseOld.y != MouseNew.y)
+	{
+		ShouldIRedraw = 1;	
+	}
+	else
+	{
+		ShouldIRedraw = 0;
+	}
+	MouseOld.x = MouseNew.x; 
+	MouseOld.y = MouseNew.y; 
+	return (ShouldIRedraw);
 }
 
 HumanManager::~HumanManager(void)
